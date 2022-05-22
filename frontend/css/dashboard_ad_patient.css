@@ -9,6 +9,7 @@
     background-color:#2C3E50 ;
 
   }
+  
   .icon{
 padding-right: 17px;
   }
@@ -83,7 +84,6 @@ padding-right: 17px;
     width: 40%;
     transform: translate(15%,-30%);
     border-radius: 5%;
-
   }
   .btn-primary {
     background-color: white;
@@ -102,7 +102,7 @@ padding-right: 17px;
     background-color: green !important;
     /* border: blue !important; */
     position: absolute !important;
-    left:350% !important;
+    left:178% !important;
     top: 64% !important;
     width: 4%;
     height: 4%;
@@ -135,45 +135,101 @@ padding-right: 17px;
    color: #123355;
  }
  #notification{
-   position: absolute;
-   right: -5%;
-   width: 8%;
-   top: -25%;
-   
+  position: absolute;
+  right: -10%;
+  width: 8%;
+  top: -25%;
+  
+
  }
  .contentt{
-  height: 130%;
+  height: 100%;
     width: 80%;
     position: absolute;
     top: 15%;
     left: 20%;
-    /* background-color:#eeee; */
     background-color: #dfe3e5;
-    /* background-color: #ddf5f9; */
-
 
  }
- #tasks{
-   width: 30%;
-   position: absolute;
-   left: 10%;
-   top: 5%;
+ button {
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 100%;
+}
+ .table{
+     position: absolute;
+     top: 20%;
+     width: 90%;
+     left: 5%;
+     background-color: rgb(255, 255, 255);
  }
- #doc_pat{
-  width: 30%;
-  position: absolute;
-  top: 5%;
-  right: 10%;
+ thead{
+     background-color: #123355;
+     color: white;
+ }
+ #add{
+   width: 15%;
+     position: absolute;
+     top: 10%;
+     right: 10%;
+     background-color: #123355;
+ }
+ #add:hover{
+   background-color: #284d72;
+   color: white;
+ }
+ .modal-header{
+  background-color: #123355;
+  color: aliceblue;
+}
+.modal-body{
+  color: rgb(24, 42, 112);
+  font-size: x-large;
+}
+.fade.modal-backdrop.show{
+  opacity: 0.7;
+ }
+ .modal-dialog.show{
+  opacity:0.31;
+}
+label{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+input,select{
+  width: 70%;
+  border-radius: 6px;
+}
+.btn-secondary{
+background-color: #123355;
+  color: aliceblue;
+}
+.btn-close{
+  background-color: white;
+  color: white;
+
+}
+#delete{
+  background-color: #123355;
+  color: aliceblue;
+  width: 89%;
+  /* height: 10%; */
+  padding: 1%;
+  border-radius: 6px;
+  border-color: #123355;
+  margin: 0;
+}
+#delete:hover{
+  background-color:rgb(157, 14, 14);
+  border-color: rgb(157, 14, 14);
 
  }
  
  
- #chartContainer{
-  width: 80%;
-  position: absolute;
-  top: 51%;
-  right: 10%;
- }
+ 
   
   @media screen and (max-width: 700px) {
     .sidebar {
@@ -206,23 +262,7 @@ padding-right: 17px;
       float: left;
 
     }
-    #tasks{
-      /* position: absolute;
-      top: auto;
-      left: auto;
-      width: auto; */
-      float: none;
-    }
-    #doc_pat{
-      /* position: absolute;
-      top: auto;
-      left: auto;
-      width: auto; */
-      float: left;
-      
-        flex-direction:column;
-        
-    }
+    
 
 
   }
@@ -256,22 +296,5 @@ display: none;    }
       float: none;
 
     }
-    /* home */
-    #tasks{
-      /* position: absolute;
-      top: auto;
-      left: auto; */
-      /* width: 100%; */
-      float: none;
-    }
-    #doc_pat{
-      /* position: absolute;
-      top: calc(80%-400px);
-      left: auto;
-      width: 100%; */
-      float: none;
-     
-        /* flex-direction:column; */
-        
-    }
+  
   }
