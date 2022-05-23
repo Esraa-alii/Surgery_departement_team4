@@ -49,3 +49,7 @@ post op Appointment -> post_op_appt\
 operation type -> op_type\
 medication after surgery -> med_after_sur\
 fees -> fees
+
+## patient sign in.
+email -> pmail
+password -> ppsw

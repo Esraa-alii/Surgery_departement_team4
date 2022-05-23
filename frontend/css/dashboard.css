@@ -55,16 +55,16 @@ padding-right: 17px;
 
 
 
-  
+
   .sidebar a:hover {
-      
+
     /* background-color:#5fb1ac ; */
-    
+
     background-color:#8dd6e1 ;
     color: #123355;
-    
+
   }
-  
+
   div.content {
     margin-left: 200px;
     padding: 1px 16px;
@@ -76,10 +76,10 @@ padding-right: 17px;
     left: 22%;
     top: 5%;
     justify-content: space-between;
-    
+
   }
   #small_profile{
-   
+
     width: 40%;
     transform: translate(15%,-30%);
     border-radius: 5%;
@@ -124,10 +124,10 @@ padding-right: 17px;
     left: -1%;
     border-bottom: solid 3px  ;
     border-color: #3b8a94;
- 
+
   }
  .title{
-   
+
    color: #123355;
  }
  .right{
@@ -139,7 +139,7 @@ padding-right: 17px;
    right: -5%;
    width: 8%;
    top: -25%;
-   
+
  }
  .contentt{
   height: 130%;
@@ -166,15 +166,15 @@ padding-right: 17px;
   right: 10%;
 
  }
- 
- 
+
+
  #chartContainer{
   width: 80%;
   position: absolute;
   top: 51%;
   right: 10%;
  }
-  
+
   @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
@@ -190,7 +190,7 @@ padding-right: 17px;
     .vertical_line{
       display: none;
     }
-    
+
     .container{
       display: none;
     }
@@ -219,21 +219,21 @@ padding-right: 17px;
       left: auto;
       width: auto; */
       float: left;
-      
+
         flex-direction:column;
-        
+
     }
 
 
   }
-  
+
   @media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;
       float: none;
       top: auto;
 
-      
+
     }
     .sidebar img{
 display: none;    }
@@ -270,8 +270,8 @@ display: none;    }
       left: auto;
       width: 100%; */
       float: none;
-     
+
         /* flex-direction:column; */
-        
+
     }
   }

@@ -41,16 +41,16 @@ chart.render();
 window.onload = function () {
 
 	var chart = new CanvasJS.Chart("chartContainer", {
-		animationEnabled: true,  
+		animationEnabled: true,
 		title:{
-			text: "Operation per last month"
+			text: "Operations per last month"
 		},
 		axisY: {
-			title: "Num of operation",
+			title: "Num. of operations",
 			// valueFormatString: "#0,,.",
 			// suffix: "",
 			stripLines: [{
-			
+
 				value: 10.7,
 				label: "Average"
 			}]
@@ -59,7 +59,7 @@ window.onload = function () {
 			title: "Week",
 			// valueFormatString: "#0,,.",
 			// suffix: "",
-			
+
 		},
 		data: [{
 			// yValueFormatString: "#0,,.",
@@ -70,11 +70,10 @@ window.onload = function () {
 				{x: 2, y: 6},
 				{x: 3, y: 18},
 				{x: 4, y: 9},
-			
+
 			]
 		}]
 	});
 	chart.render();
-	
-	}
 
+	}
