@@ -18,13 +18,15 @@ building number -> build_num\
 phone number 1 -> telephone1\
 phone number 2 -> telephone2.
 
-## addPatient form.
+## addPatient form / patient sign up.
 
 file name placeholder -> addPatient.php
 (find and replace this file name with the file you use.)
 
 ### variable names.
 
+email ->pmail\
+passowrd-> ppsw\
 ssn -> ssn\
 first name -> fname\
 middle name -> mname\
@@ -49,6 +51,9 @@ post op Appointment -> post_op_appt\
 operation type -> op_type\
 medication after surgery -> med_after_sur\
 fees -> fees
+## patient sign up
+email -> pmail
+password -> ppsw
 
 ## patient sign in.
 email -> pmail
