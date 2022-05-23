@@ -1,0 +1,60 @@
+Homepage// --yousef
+
+
+Admin///
+sign up -- yousef
+sign in  -- sa3ed
+log out  -- sa3ed
+add doctor -- sa3ed
+add patient -- sa3ed
+delete doctor  -- sa3ed
+delete patient -- sa3ed
+
+tasks assigning op room - -- yousef
+
+acceptance(send to dr & patient)/rejection (send to dr)
+
+
+
+
+
+Admin: -- omnia
+tasks dashboard
+dr vs patient dashboard
+op per last month dashboard
+
+
+
+
+
+
+
+
+doctor// -- yousef
+
+assigning operation date & time
+uploading report
+
+
+
+Patient/// -- yousef
+
+
+cancel appointment
+Book appointment 
+(greying booked appointments)
+View report
+
+
+
+
+
+
+admin notification
+
+
+
+
+
+
+

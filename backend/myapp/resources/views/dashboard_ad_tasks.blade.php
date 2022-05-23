@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,8 @@
     <link rel="stylesheet" href="styling/fontawesome-free-6.0.0-web/css/all.css">
 
     <link rel="stylesheet" href="styling/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="styling/css/dashboard.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styling/css/dashboard_ad_tasks.css">
+    <title>Admin Dashboard</title>
 </head>
 <body>
     <div class="sidebar">
@@ -18,9 +19,9 @@
 
         <a href="/"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
         
-
-        <a href="/admintasks"><i class=" icon fa-solid fa-list-check"></i> 
-                Tasks </a>
+        <div class="active">
+        <a href="/admintasks" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+                Tasks </a></div>
                 <a href="/adminappointments"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
 
@@ -35,19 +36,48 @@
             <div class="col">
             <h3 class="title"> Admin Dashboard</h5>
         </div>
-           
+      
 </div>
 </div>
- <div class="contentt">
-     {{-- TODO --}}
-  <div id="tasks" ></div>
-  <div id="doc_pat" ></div>
-  <div id="chartContainer"></div>
+<div class="contentt">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Sender Name</th>
+        <th scope="col">Task</th>
+        <th scope="col">Status</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="Myid">
+        <th scope="row" >1</th>
+        <td >Esraa</td>
+        <td >task details</td>
+        <td ><button id="done" onclick="toggleText()">Done</button>
+        </td>
+      </tr>
+
+        <tr id="Myid2">
+          <th scope="row" >2</th>
+          <td >Esraa</td>
+          <td >task details</td>
+          <td ><button id="done" onclick="toggleText2()">Done</button>
+          </td>
+
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
 
 
- </div>
- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
- <script src="styling/Java Script/dashboard_home.js"></script>
+ 
+ <script src="styling/bootstrap/bootstrap.bundle.min.js"></script>
+
+ <script src="Java Script/delete.js"></script>
 </body>
 </html>
 
