@@ -36,30 +36,15 @@
             <div class="col">
             <h3 class="title"> Admin Dashboard</h5>
         </div>
-      <div class="  col-2">
-          <div class="right">
-        <button type="button" class="btn btn-primary position-relative">
-            <span class="online position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="small_profile">
-
-            </span>
-          </button>
-
-        <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="small_profile">
-       
-        
-   </div> </div>
-   <img id="notification" src="../css/img/message-chat-notification-bell-outline-icon-vector-30837683.png" alt="">
      
 </div>
 </div>
+
 <div class="contentt">
-   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="add">
   Add Doctor
 </button>
 
-<!-- Modal -->
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -68,13 +53,9 @@
         <th scope="col">Last Name</th>
         <th scope="col">SSN</th>
         <th scope="col">Mail</th>
-        <!-- <th scope="col">Address</th> -->
         <th scope="col">phone</th>
         <th scope="col">Gender</th>
         <th scope="col"></th>
-
-
-
       </tr>
     </thead>
     <tbody>
@@ -84,17 +65,14 @@
         <td>Ali</td>
         <td>11</td>
         <td>skj@doc.com</td>
-        <!-- <td>lksj</td> -->
         <td>01111111111</td>
         <td>female</td>
         <td><button id="delete" onclick="toggleText()">Delete</button></td>
-
       </tr>
-      
     </tbody>
   </table>
 </div>
-
+<!-- modal popup -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-l"> 
     <div class="modal-content" >
@@ -134,14 +112,7 @@
         <!-- ssn part -->
           <label for="ssn">SSN: </label> <br>
           <input type="number" id="ssn" name="ssn" required min="0" max="99999999999999"> <br>
-        <!-- position selection part -->
-          <!-- <label for="position">Position:</label>
-          <select name="position" id="position" required>
-            <option value="doctor">Doctor</option>
-            <option value="nurse">Nurse</option>
-            <option value="technician">Technician</option>
-          </select>
-          <br> -->
+        
 
         <!-- Address part -->
           <label for="city">City:</label> <br>
@@ -172,9 +143,8 @@
     </div>
   </div>
 </div>
- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
  <script src="../bootstrap/bootstrap.bundle.min.js"></script>
- <script src="../Java Script/add_doctor.js"></script>
+ <script src="../Java Script/delete.js"></script>
 </body>
 </html>
 

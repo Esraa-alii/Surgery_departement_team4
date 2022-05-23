@@ -36,24 +36,7 @@
             <div class="col">
             <h3 class="title"> Admin Dashboard</h5>
         </div>
-      <div class="  col-2">
-          <div class="right">
-        <!-- <h5 class="welcome"> Hello,Admin name</h5> -->
-        <button type="button" class="btn btn-primary position-relative">
-            <span class="online position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="small_profile">
-
-            </span>
-          </button>
-
-        <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="small_profile">
-        <!-- <h3 class="admin">Admin name</h3> -->
-        <!-- <img src="../css/img/notification-icon-700-223244582.jpeg" alt="notification" class="notificationz"> -->
-        <!-- <i class="fa-regular fa-message" id="notification"></i>      -->
-   </div> </div>
-   <!-- <i class="fa-regular fa-message" id="notification"></i>      -->
-   <img id="notification" src="../css/img/message-chat-notification-bell-outline-icon-vector-30837683.png" alt="">
-     
+   
 </div>
 </div>
 
@@ -63,7 +46,6 @@
     Add patient
   </button>
 
-<!-- Modal -->
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -92,13 +74,13 @@
         <td>female</td>
         <td><button id="delete" onclick="toggleText()">Delete</button></td>
 
-
       </tr>
       
     </tbody>
   </table>
 </div>
 
+<!-- modal popup -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
  <div class="modal-dialog modal-l"> 
     <div class="modal-content" >
@@ -146,11 +128,7 @@
         <label for="diagnosis">Diagnosis:</label><br>
         <input type="text" id="diagnosis" name="diagnosis" required
         tabindex="4" placeholder="Enter patient's diagnosis."> <br>
-        <!-- Scans part -->
-        <!-- <a href="">View patient's scans.</a> <br> -->
-        <!-- history part -->
-        <!-- <a href="">View patient's history.</a> <br> -->
-        <!-- insurance part -->
+      
         <label for="insurance">Insurance provider:</label><br>
         <input type="text" id="insurance" name="insurance" required
         tabindex="4" placeholder="Enter patient's insurance info."> <br>
@@ -179,7 +157,6 @@
             <label for="exit_date">Uplode patient's history.</label> <br>
             <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" ><br>
         
-        <!-- Submit button -->
       </form>
       </div>
       <div class="modal-footer">
@@ -188,9 +165,8 @@
     </div>
   </div>
 </div>
- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
  <script src="../bootstrap/bootstrap.bundle.min.js"></script>
- <script src="../Java Script/add_doctor.js"></script>
+ <script src="../Java Script/delete.js"></script>
 </body>
 </html>
 
