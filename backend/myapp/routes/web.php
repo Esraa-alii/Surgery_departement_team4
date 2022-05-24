@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('patient_signin');
 });
 
 Route::get('/admintasks', function () {
     return view('dashboard_ad_tasks');
-});
+})->name('admintasks');
 
 Route::get('/adminpatients', function () {
     return view('dashboard_ad_patient');
@@ -27,10 +27,11 @@ Route::get('/adminpatients', function () {
 
 Route::get('/admindoctors', function () {
     return view('dashboard_ad_doctors');
-});
+})->name('doctors');
 
 Route::get('/adminappointments', function () {
     return view('dashboard_ad_appo');
-});
+})->name('adminappo');
+
 
 

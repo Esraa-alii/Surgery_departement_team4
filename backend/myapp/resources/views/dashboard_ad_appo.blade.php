@@ -20,9 +20,9 @@
         <a href="/"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
         
         <div class="active">
-        <a href="/admintasks" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+        <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i> 
                 Tasks </a></div>
-                <a href="/adminappointments"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
+                <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
 
                 <a href="/admindoctors"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>

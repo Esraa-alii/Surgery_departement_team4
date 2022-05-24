@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styling/fontawesome-free-6.0.0-web/css/all.css">
+    <link rel="stylesheet" href="{{asset('styling/fontawesome-free-6.0.0-web/css/all.css')}}">
 
-    <link rel="stylesheet" href="styling/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="styling/css/dashboard_ad_tasks.css">
+    <link rel="stylesheet" href="{{asset('styling/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('styling/css/dashboard_ad_tasks.css')}}">
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -20,9 +20,9 @@
         <a href="/"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
         
         <div class="active">
-        <a href="/admintasks" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+        <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i> 
                 Tasks </a></div>
-                <a href="/adminappointments"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
+                <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
 
                 <a href="/admindoctors"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
