@@ -31,9 +31,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('patient_signup');
 // })->name('signup');
 
-Route::get('/', function () {
-        return view('patient_signin');
-    })->name('signin');
+// Route::get('/', function () {
+//         return view('patient_signin');
+//     })->name('signin');
 //-----------------------------------------------
     
 
