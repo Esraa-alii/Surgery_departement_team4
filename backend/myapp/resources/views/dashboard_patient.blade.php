@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+    <link rel="stylesheet" href="{{asset("/fontawesome-free-6.0.0-web/css/all.css")}}">
 
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/dashboard_patient.css">
+    <link rel="stylesheet" href="{{asset("styling/bootstrap/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("styling/css/dashboard_patient.css")}}">
     <title>Document</title>
 </head>
 <body>
     <div class="sidebar">
-        <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
+        <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
         <h2 >Patient Name</h2>
         <p class="vertical_line"> </p>
 
@@ -64,7 +64,7 @@
          <h3 class="modal-title" id="exampleModalLabel" style="margin:0;">your report </h3>
        </div>
        <div class="modal-body">
-        <img src="../css/img/006806688_1-177263f48504b0f4b5793f80cc5b65fe-768x994.png" alt="report" id="repo">
+        <img src="{{asset("styling/css/img/006806688_1-177263f48504b0f4b5793f80cc5b65fe-768x994.png")}}" alt="report" id="repo">
 
        </div>
        <div class="modal-footer">
@@ -75,8 +75,8 @@
  </div>
 
 
- <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+ <script src="{{asset("/bootstrap/bootstrap.bundle.min.js")}}"></script>
 
- <script src="../Java Script/dashboard_patient.js"></script>
+ <script src="{{asset("/Java Script/dashboard_patient.js")}}"></script>
 </body>
 </html>

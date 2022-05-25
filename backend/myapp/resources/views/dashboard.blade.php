@@ -17,7 +17,7 @@
         <h2 >Admin Name</h2>
         <p class="vertical_line"> </p>
 
-        <a href="/"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
+        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
         
 
         <a href="{{route('admintasks')}}"><i class=" icon fa-solid fa-list-check"></i> 
@@ -25,8 +25,8 @@
                 <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
 
-                <a href="{{route('doctors')}}"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
-        <a href="/adminpatients"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
+                <a href="{{route('admindoctors')}}"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
+        <a href="{{route('adminpatients')}}"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
         <p class="vertical_line"> </p>
 
         <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
@@ -48,7 +48,7 @@
 
  </div>
  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
- <script src="styling/Java Script/dashboard_home.js"></script>
+ <script src={{asset("styling/Java Script/dashboard_home.js")}}></script>
 </body>
 </html>
 
