@@ -5,37 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styling/fontawesome-free-6.0.0-web/css/all.css">
+    <link rel="stylesheet" href="{{asset('styling/fontawesome-free-6.0.0-web/css/all.css')}}">
 
-    <link rel="stylesheet" href="styling/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="styling/css/dashboard_ad_doctors.css">
+    <link rel="stylesheet" href="{{asset('styling/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset("styling/css/dashboard_ad_doctors.css")}}">
     <title>Admin Dashboard</title>
 </head>
 <body>
     <div class="sidebar">
-        <img src="styling/css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
-        <h2 >Admin Name</h2>
-        <p class="vertical_line"> </p>
+      <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
+      <h2 >Admin Name</h2>
+      <p class="vertical_line"> </p>
 
-        <a href="/"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
-        
-        <div class="active">
-        <a href="/admintasks" id="active"><i class=" icon fa-solid fa-list-check"></i> 
-                Tasks </a></div>
-                <a href="/adminappointments"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
-                <p class="vertical_line"> </p>
+      <a href="{{route("admindashboard")}}"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
+      
+      <div class="active">
+      <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+              Tasks </a></div>
+              <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
+              <p class="vertical_line"> </p>
 
-                <a href="/admindoctors"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
-        <a href="/adminpatients"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
-        <p class="vertical_line"> </p>
+              <a href="{{route("admindoctors")}}"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
+      <a href="{{route('adminpatients')}}"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
+      <p class="vertical_line"> </p>
 
-        <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+      <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+          <h3 class="title"> Admin Dashboard</h5>
       </div>
-      <div class="container">
-          <div class="row">
-            <div class="col">
-            <h3 class="title"> Admin Dashboard</h5>
-        </div>
      
 </div>
 </div>
@@ -143,8 +143,8 @@
     </div>
   </div>
 </div>
- <script src="styling/bootstrap/bootstrap.bundle.min.js"></script>
- <script src="styling/Java Script/delete.js"></script>
+ <script src="{{asset("styling/bootstrap/bootstrap.bundle.min.js")}}"></script>
+ <script src="{{asset("Java Script/delete.js")}}"></script>
 </body>
 </html>
 

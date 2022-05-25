@@ -15,15 +15,13 @@
     @if (isset(Auth::user()->email))
       
      <div class="sidebar">
-        <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
-        <h2 >{{ Auth::user()->email}}</h2>
-        <p class="vertical_line"> </p>
-
+      <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
+      <h2 >{{ Auth::user()->email}}</h2>
 
 
         <a href="{{url('/logout')}}" id="log"><i class=" icon  fa-solid fa-right-from-bracket" ></i> Log out</a>
       </div>
-      else
+      @else
       <script>window.location ="/";</script>
       @endif 
       <div class="container">
@@ -70,7 +68,7 @@
          <h3 class="modal-title" id="exampleModalLabel" style="margin:0;">your report </h3>
        </div>
        <div class="modal-body">
-        <img src="../css/img/006806688_1-177263f48504b0f4b5793f80cc5b65fe-768x994.png" alt="report" id="repo">
+        <img src="{{asset("styling/css/img/006806688_1-177263f48504b0f4b5793f80cc5b65fe-768x994.png")}}" alt="report" id="repo">
 
        </div>
        <div class="modal-footer">
@@ -81,8 +79,8 @@
  </div>
 
 
- <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+ <script src="{{asset("/bootstrap/bootstrap.bundle.min.js")}}"></script>
 
- <script src="../Java Script/dashboard_patient.js"></script>
+ <script src="{{asset("/Java Script/dashboard_patient.js")}}"></script>
 </body>
 </html>
