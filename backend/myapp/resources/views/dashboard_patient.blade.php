@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+    <link rel="stylesheet" href="{{asset('styling/fontawesome-free-6.0.0-web/css/all.css')}}">
 
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/dashboard_patient.css">
+    <link rel="stylesheet" href="{{asset('styling/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('styling/css/dashboard_patient.css')}}">
     <title>Document</title>
 </head>
 <body>
-    <div class="sidebar">
+   
+    @if (isset(Auth::user()->email))
+      
+     <div class="sidebar">
         <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
-        <h2 >Patient Name</h2>
+        <h2 >{{ Auth::user()->email}}</h2>
         <p class="vertical_line"> </p>
 
 
 
-        <a href="#" id="log"><i class=" icon  fa-solid fa-right-from-bracket" ></i> Log out</a>
+        <a href="{{url('/logout')}}" id="log"><i class=" icon  fa-solid fa-right-from-bracket" ></i> Log out</a>
       </div>
+      else
+      <script>window.location ="/";</script>
+      @endif 
       <div class="container">
           <div class="row">
             <div class="col">

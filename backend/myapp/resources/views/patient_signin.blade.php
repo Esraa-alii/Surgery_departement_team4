@@ -16,17 +16,40 @@
     </div>
     <div class="middle-cont">
         <!-- for back end: file name is "patientSignup.php", change accordingly -->
-        <form class="patient_signup" action="patientSignup.php" method="post">
-           <h1>Sign in</h1>
+       @if(isset(Auth::user()->email))
+       <script>window.location ="/dashboardpatient";</script>
+       @endif 
+
+        @if ($message = Session::get('error'))
+        <div class="alert alert-danger alert-block">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
+
+        @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{$error}}</li>
+                  @endforeach
+                </ul>
+              </div>
+        @endif
+
+        <form class="patient_signup" action="{{url('/checklogin')}}" method="post">
+          {{ csrf_field() }}
+          <h1>Sign in</h1>
            <p>Please enter your login data.</p>
            <hr>
            <!-- email field -->
            <label for="email"><b>Email</b></label>
-           <input type="text" placeholder="Enter Email" name="pmail"
+           <input type="text" placeholder="Enter Email" name="email"
            required maxlength="50" tabindex="0">
            <!-- password field -->
            <label for="ppsw"><b>Password</b></label>
-           <input type="password" placeholder="Enter Password" name="ppsw" required
+           <input type="password" placeholder="Enter Password" name="password" required
            maxlength="20">
            <!-- submit button -->
            <div class="clearfix">

@@ -56,5 +56,5 @@ email -> pmail
 password -> ppsw
 
 ## patient sign in.
-email -> pmail
-password -> ppsw
+email -> email
+password -> password
