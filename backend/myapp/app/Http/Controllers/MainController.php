@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class MainController extends Controller
@@ -16,8 +17,8 @@ class MainController extends Controller
     function checklogin(Request $request)
     {
         $this->validate($request, [
-            'pmail' => 'required|email',
-            'ppsw'  =>  'required|alpha_num|min:3'
+            'email' => 'required|email',
+            'password'  =>  'required|alpha_num|min:3'
         ]);
 
         $user_data = array(
@@ -33,13 +34,21 @@ class MainController extends Controller
             return back()->with('error', 'email or password is wrong');
         }
 
-        function successlogin (){
-            return view('dashboard_patient');
-        }
-
-        function logout(){
-            Auth::logout();
-            return redirect('/');
-        }
+        
+        
     }
+    function successlogin (){
+        return view('dashboard_patient');
+    }
+
+     function logout() {
+        Auth::logout();
+        return redirect('/');
+      }
+
+
+
+
+      
+
 }

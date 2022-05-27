@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use Illuminate\Contracts\Foundation\MaintenanceMode;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +26,17 @@ use App\Http\Controllers\MainController;
 //----------------------------------------------
 //////Patient dashboard
 
-// Route::get('/', function () {
-//     return view('dashboard_patient');
-// })->name('patientdashboard');
+Route::get('/patientdashboard', function () {
+    return view('dashboard_patient');
+})->name('patientdashboard');
 
 // Route::get('/', function () {
 //     return view('patient_signup');
 // })->name('signup');
 
-// Route::get('/', function () {
-//         return view('patient_signin');
-//     })->name('signin');
+Route::get('/', function () {
+        return view('patient_signin');
+    })->name('signin')->middleware('guest');
 //-----------------------------------------------
     
 
@@ -83,11 +85,26 @@ Route::get('/admindoctors', function () {
 Route::get('/adminappointments', function () {
     return view('dashboard_ad_appo');
 })->name('adminappo');
-Route::post('patientSignin', [maincontroller::class,'checklogin']);
+Route::post('patientSignin', [MainController::class,'checklogin']);
+Route::get('/successlogin', [MainController::class, 'successlogin']);
+Route::get('/logout', [MainController::class, 'logout'])->name('logout');
+Route::post('/checklogin', [MainController::class, 'checklogin']);
 
 
 
 
-//-----------------------------------------------
+Route::get('test',function(){
+
+    return Hash::make('messi');
+});
+
+
+
+
+
+
+
+
+
 
 

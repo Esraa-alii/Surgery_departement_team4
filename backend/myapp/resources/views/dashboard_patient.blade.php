@@ -16,10 +16,10 @@
       
      <div class="sidebar">
       <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
-      <h2 >{{ Auth::user()->email}}</h2>
+      <h2 >{{ Auth::user()->fname}}</h2>
 
 
-        <a href="{{url('/logout')}}" id="log"><i class=" icon  fa-solid fa-right-from-bracket" ></i> Log out</a>
+        <a href="{{route('logout')}}" id="log"><i class=" icon  fa-solid fa-right-from-bracket" ></i> Log out</a>
       </div>
       @else
       <script>window.location ="/";</script>

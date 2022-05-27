@@ -17,7 +17,10 @@
     <div class="middle-cont">
         <!-- for back end: file name is "patientSignup.php", change accordingly -->
        @if(isset(Auth::user()->email))
-       <script>window.location ="/dashboardpatient";</script>
+       @php
+         redirect()->to('/patientdashboard');
+       @endphp
+       {{-- <script>window.location ="/dashboardpatient";</script> --}}
        @endif 
 
         @if ($message = Session::get('error'))
