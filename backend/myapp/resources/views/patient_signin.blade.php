@@ -2,30 +2,31 @@
 <html lang="en" dir="ltr">
   <head>
     <title>Patient sign in.</title>
-    <link rel="stylesheet" href="{{asset('styling/css/patient_signin.css')}}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{{asset('styling/bootstrap/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('styling/fontawesome-free-6.0.0-web/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('styling/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('styling/css/patient_signin.css')}}">
 
   </head>
   <body>
     <div class="title-bar">
-      <p>Patient sign in</p>
+      <p>Sign in</p>
     </div>
     <div class="middle-cont">
+      <h1>Sign in</h1>
+       <p>Please enter your login data.</p>
+
         <!-- for back end: file name is "patientSignup.php", change accordingly -->
        @if(isset(Auth::user()->email))
        @php
          redirect()->to('/patientdashboard');
        @endphp
        {{-- <script>window.location ="/dashboardpatient";</script> --}}
-       @endif 
+       @endif
 
         @if ($message = Session::get('error'))
         <div class="alert alert-danger alert-block">
-          <button type="button" class="close" data-dismiss="alert">x</button>
           <strong>{{ $message }}</strong>
         </div>
         @endif
@@ -43,8 +44,6 @@
 
         <form class="patient_signup" action="{{url('/checklogin')}}" method="post">
           {{ csrf_field() }}
-          <h1>Sign in</h1>
-           <p>Please enter your login data.</p>
            <hr>
            <!-- email field -->
            <label for="email"><b>Email</b></label>
@@ -60,5 +59,7 @@
            </div>
         </form>
     </div>
+
+
   </body>
 </html>

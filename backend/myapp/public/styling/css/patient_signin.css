@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   min-width: 100%
   font-size: 15px;
-  background-color: #dfe3e5;
+  background-color: #dfe3e5  !important;
   font-family: var(--fa-style-family, "Font Awesome 6 Free");
   letter-spacing: 3px;
 }
@@ -14,7 +14,7 @@ html, body {
   display:flex;
   justify-content: center;
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
   padding: 5px;
   /* color for top bar */
@@ -30,6 +30,7 @@ html, body {
 .middle-cont {
   width:50%;
   margin: auto;
+  background-color: #dfe3e5;
 
 }
 
