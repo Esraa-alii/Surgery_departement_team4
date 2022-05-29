@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AddDoctor;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,19 +26,16 @@ use Illuminate\Support\Facades\Route;
 //----------------------------------------------
 //////Patient dashboard
 
-// Route::get('/', function () {
-//     return view('dashboard_patient');
-// })->name('patientdashboard');
+Route::get('/patientdashboard', function () {
+    return view('dashboard_patient');
+})->name('patientdashboard');
+
 
 // Route::get('/', function () {
-//     return view('patient_signup');
-// })->name('signup');
-
-// Route::get('/', function () {
-//         return view('patient_signin');
-//     })->name('signin');
+//     return view('patient_signin');
+// })->name('signin');
 //-----------------------------------------------
-    
+
 
 
 
@@ -61,11 +61,15 @@ Route::get('/doctorpatients', function () {
 
 
 //-----------------------------------------------
+//// admin dashboard ---->
 
-////// admin dashboard ---->
-// Route::get('/', function () {
-//     return view('dashboard');
-// })->name('admindashboard');
+
+Route::middleware('admin')->group(function () {
+});
+
+Route::get('/admindashboard', function () {
+    return view('dashboard');
+})->name('admindashboard');
 
 Route::get('/admintasks', function () {
     return view('dashboard_ad_tasks');
@@ -75,14 +79,36 @@ Route::get('/adminpatients', function () {
     return view('dashboard_ad_patient');
 })->name("adminpatients");
 
-Route::get('/admindoctors', function () {
-    return view('dashboard_ad_doctors');
-})->name('admindoctors');
+// Route::get('/admindoctors', function () {
+//     return view('dashboard_ad_doctors');
+// })->name('admindoctors');
 
 Route::get('/adminappointments', function () {
     return view('dashboard_ad_appo');
 })->name('adminappo');
 
+
 //-----------------------------------------------
 
 
+//-----------------------------------------------
+
+/// sign up
+
+Route::get("register", [RegisterController::class, 'create'])->middleware('guest');
+Route::post("register", [RegisterController::class, 'store'])->middleware('guest');
+//-----------------------------------------------
+
+// add doctor
+
+
+// Route::get("adddoctor", [RegisterController::class, 'create'])->middleware('admin');
+// Route::post("register", [RegisterController::class, 'store'])->middleware('admin');
+
+
+Route::post("adddoctor", [AddDoctor::class, 'store']);
+Route::get('/', function () {
+    return view('dashboard_ad_doctors');
+})->name('admindoctors');
+
+//-----------------------------------------------
