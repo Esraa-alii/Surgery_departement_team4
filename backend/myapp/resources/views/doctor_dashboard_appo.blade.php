@@ -27,7 +27,7 @@
   <a href="{{route('doctorpatients')}}"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
   <p class="vertical_line"> </p>
 
-        <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+        <a href="{{route('logout')}}"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
       </div>
       <div class="container">
           <div class="row">

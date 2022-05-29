@@ -14,13 +14,13 @@
 <body>
     <div class="sidebar">
       <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
-      <h2 >Admin Name</h2>
+      <h2 >{{ Auth::user()->fname}}</h2>
       <p class="vertical_line"> </p>
 
-      <a href="{{route("admindashboard")}}"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
-      
+      <a href="{{route("admindashboard")}}"><i class=" icon home fa-solid fa-house" > </i>Home</a>
+
       <div class="active">
-      <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+      <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i>
               Tasks </a></div>
               <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
               <p class="vertical_line"> </p>
@@ -29,14 +29,14 @@
       <a href="{{route('adminpatients')}}"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
       <p class="vertical_line"> </p>
 
-      <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+      <a href="{{route('logout')}}"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
     </div>
     <div class="container">
         <div class="row">
           <div class="col">
-          <h3 class="title"> Admin Dashboard</h5>
+          <h3 class="title"> Admin Dashboard</h3>
       </div>
-     
+
 </div>
 </div>
 
@@ -59,22 +59,26 @@
       </tr>
     </thead>
     <tbody>
+      @foreach ($members as $member)
+      @if($member['Role'] == 'Doctor')
       <tr id="Myid">
         <th scope="row">1</th>
-        <td>Esraa</td>
-        <td>Ali</td>
-        <td>11</td>
-        <td>skj@doc.com</td>
-        <td>01111111111</td>
-        <td>female</td>
-        <td><button id="delete" onclick="toggleText()">Delete</button></td>
+        <td>{{$member['fname']}}</td>
+        <td>{{$member['mname']}}</td>
+        <td>{{$member['ssn']}}</td>
+        <td>{{$member['email']}}</td>
+        <td>{{$member['phone_number1']}}</td>
+        <td>{{$member['gender']}}</td>
+        <td><a id="delete" href={{"deletedoctor/".$member['id']}}>Delete</a></td>
       </tr>
+      @endif
+      @endforeach
     </tbody>
   </table>
 </div>
 <!-- modal popup -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-l"> 
+ <div class="modal-dialog modal-l">
     <div class="modal-content" >
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalLabel" style="margin:0;">Add doctor </h3>
@@ -103,7 +107,7 @@
         <label for="birth_date">Birth date:</label> <br>
         <input type="date" id="birth_date" name="birth_date" required><br>
         <!-- gener part -->
-          <label for="gender">Gender:</label><br> 
+          <label for="gender">Gender:</label><br>
           <select name="gender" id="gender" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -112,7 +116,7 @@
         <!-- ssn part -->
           <label for="ssn">SSN: </label> <br>
           <input type="number" id="ssn" name="ssn" required min="0" max="99999999999999"> <br>
-        
+
 
         <!-- Address part -->
           <label for="city">City:</label> <br>
@@ -134,7 +138,7 @@
         <input type="tel" id="telephone2" name="telephone2"
         minlength="11" maxlength="11" required/> <br>
         <!-- Submit button -->
-   
+
       </form>
       </div>
       <div class="modal-footer">
@@ -148,4 +152,3 @@
 </body>
 </html>
 
-  

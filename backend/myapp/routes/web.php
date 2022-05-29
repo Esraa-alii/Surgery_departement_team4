@@ -33,6 +33,11 @@ Route::get('/patientdashboard', function () {
 // Route::get('/', function () {
 //     return view('patient_signup');
 // })->name('signup');
+Route::get('/admindashboard', function(){
+    return view('dashboard');
+})->name('admindashboard');
+
+
 
 Route::get('/', function () {
         return view('patient_signin');
@@ -54,6 +59,10 @@ Route::get('/doctorappointments', function () {
     return view('doctor_dashboard_appo');
 })->name('doctorappo');
 
+Route::get('/doctortasks', function(){
+    return view('doctor_dashboard_tasks');
+})->name('doctortasks');
+
 Route::get('/doctorpatients', function () {
     return view('doctor_dashboard_pat');
 })->name('doctorpatients');
@@ -74,13 +83,12 @@ Route::get('/admintasks', function () {
     return view('dashboard_ad_tasks');
 })->name('admintasks');
 
-Route::get('/adminpatients', function () {
-    return view('dashboard_ad_patient');
-})->name("adminpatients");
+Route::get('/adminpatients', [MainController::class,'listpatient'])->name("adminpatients");
+Route::get('/admindoctors', [MainController::class, 'listdoctor'])->name('admindoctors');
 
-Route::get('/admindoctors', function () {
-    return view('dashboard_ad_doctors');
-})->name('admindoctors');
+// Route::get('/admindoctors', function () {
+//     return view('dashboard_ad_doctors');
+// })->name('admindoctors');
 
 Route::get('/adminappointments', function () {
     return view('dashboard_ad_appo');
@@ -95,10 +103,12 @@ Route::post('/checklogin', [MainController::class, 'checklogin']);
 
 Route::get('test',function(){
 
-    return Hash::make('messi');
+    return Hash::make('omnia');
 });
 
+Route::get('deletepatient/{id}', [MainController::class, 'deletepatient']);
 
+Route::get('deletedoctor/{id}', [MainController::class, 'deletedoctor']);
 
 
 

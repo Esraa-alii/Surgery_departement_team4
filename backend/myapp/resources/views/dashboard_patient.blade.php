@@ -11,9 +11,9 @@
     <title>Document</title>
 </head>
 <body>
-   
+
     @if (isset(Auth::user()->email))
-      
+
      <div class="sidebar">
       <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
       <h2 >{{ Auth::user()->fname}}</h2>
@@ -23,11 +23,11 @@
       </div>
       @else
       <script>window.location ="/";</script>
-      @endif 
+      @endif
       <div class="container">
           <div class="row">
             <div class="col">
-            <h3 class="title"> Patient Dashboard</h5>
+            <h3 class="title"> Patient Dashboard</h3>
             </div>
 
 

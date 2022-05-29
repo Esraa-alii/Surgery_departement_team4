@@ -14,13 +14,13 @@
 <body>
     <div class="sidebar">
         <img src="{{asset('styling/css/img/blank-profile-picture-973460_640.png')}}" alt="profile" id="side_profile">
-        <h2 >Admin Name</h2>
+        <h2 >{{ Auth::user()->fname}}</h2>
         <p class="vertical_line"> </p>
 
-        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
-        
+        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a>
+
         <div class="active">
-        <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+        <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i>
                 Tasks </a></div>
                 <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
@@ -34,9 +34,9 @@
       <div class="container">
           <div class="row">
             <div class="col">
-            <h3 class="title"> Admin Dashboard</h5>
+            <h3 class="title"> Admin Dashboard</h3>
         </div>
-      
+
 </div>
 </div>
 <div class="contentt">
@@ -47,7 +47,7 @@
         <th scope="col">Sender Name</th>
         <th scope="col">Task</th>
         <th scope="col">Status</th>
-        
+
 
       </tr>
     </thead>
@@ -68,17 +68,16 @@
           </td>
 
       </tr>
-      
+
     </tbody>
   </table>
 </div>
 
 
- 
+
  <script src="{{asset("styling/bootstrap/bootstrap.bundle.min.js")}}"></script>
 
  <script src="{{asset("Java Script/delete.js")}}"></script>
 </body>
 </html>
 
-  

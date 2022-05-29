@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->date('birth_date');
             $table->string('gender');
+            $table->string('Role');
             $table->integer('ssn')->unique();
             $table->string('insurance_provider');
             $table->integer('phone_number1');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 
 class MainController extends Controller
@@ -38,7 +39,15 @@ class MainController extends Controller
         
     }
     function successlogin (){
+        if(Auth::user()->Role == "Patient"){
         return view('dashboard_patient');
+        }
+        if(Auth::user()->Role == "Admin"){
+            return view('dashboard');
+        }
+        if(Auth::user()->Role == "Doctor"){
+            return view('doctor_dashboard_appo');
+        }
     }
 
      function logout() {
@@ -46,9 +55,29 @@ class MainController extends Controller
         return redirect('/');
       }
 
+      function listpatient(){
+          $data = User::all();
+          return view('dashboard_ad_patient', ['members'=> $data]);
 
+      }
 
+      function listdoctor(){
+        $data = User::all();
+        return view('dashboard_ad_doctors', ['members'=> $data]);
 
+    }
+
+      function deletepatient($id){
+      $data = User::find($id);
+      $data->delete();
+      return redirect('/adminpatients');
+      }
+
+      function deletedoctor($id){
+        $data = User::find($id);
+        $data->delete();
+        return redirect('/admindoctors');
+        }
       
 
 }

@@ -8,19 +8,19 @@
 
     <link rel="stylesheet" href="{{asset('styling/bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('styling/css/dashboard.css')}}">
-    
+
     <title>Document</title>
 </head>
 <body>
     <div class="sidebar">
         <img src="{{asset('styling/css/img/blank-profile-picture-973460_640.png')}}" alt="profile" id="side_profile">
-        <h2 >Admin Name</h2>
+        <h2 >{{ Auth::user()->fname}}</h2>
         <p class="vertical_line"> </p>
 
-        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
-        
+        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a>
 
-        <a href="{{route('admintasks')}}"><i class=" icon fa-solid fa-list-check"></i> 
+
+        <a href="{{route('admintasks')}}"><i class=" icon fa-solid fa-list-check"></i>
                 Tasks </a>
                 <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
@@ -29,14 +29,14 @@
         <a href="{{route('adminpatients')}}"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
         <p class="vertical_line"> </p>
 
-        <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+        <a href="{{route('logout')}}"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
       </div>
       <div class="container">
           <div class="row">
             <div class="col">
-            <h3 class="title"> Admin Dashboard</h5>
+            <h3 class="title"> Admin Dashboard</h3>
         </div>
-           
+
 </div>
 </div>
  <div class="contentt">
@@ -52,4 +52,3 @@
 </body>
 </html>
 
-  

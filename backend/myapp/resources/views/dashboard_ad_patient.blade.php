@@ -13,15 +13,15 @@
 </head>
 <body>
   <div class="sidebar">
-    
+
       <img src="{{asset("styling/css/img/blank-profile-picture-973460_640.png")}}" alt="profile" id="side_profile">
-        <h2 >Admin Name</h2>
+        <h2 >{{ Auth::user()->fname}}</h2>
         <p class="vertical_line"> </p>
 
-        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
-        
+        <a href="{{route('admindashboard')}}"><i class=" icon home fa-solid fa-house" > </i>Home</a>
+
         <div class="active">
-        <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i> 
+        <a href="{{route('admintasks')}}" id="active"><i class=" icon fa-solid fa-list-check"></i>
                 Tasks </a></div>
                 <a href="{{route('adminappo')}}"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
                 <p class="vertical_line"> </p>
@@ -30,14 +30,14 @@
         <a href="{{route('adminpatients')}}"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
         <p class="vertical_line"> </p>
 
-        <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+        <a href="{{route('logout')}}"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
       </div>
       <div class="container">
           <div class="row">
             <div class="col">
-            <h3 class="title"> Admin Dashboard</h5>
+            <h3 class="title"> Admin Dashboard</h3>
         </div>
- 
+
 </div>
 </div>
 
@@ -55,35 +55,38 @@
         <th scope="col">Last Name</th>
         <th scope="col">SSN</th>
         <th scope="col">Mail</th>
-        <th scope="col">Address</th>
-        <th scope="col">phone</th>
         <th scope="col">Gender</th>
+        <th scope="col">phone</th>
+        <th scope="col">birth Date</th>
         <th scope="col"></th>
 
 
       </tr>
     </thead>
     <tbody>
+      @foreach ($members as $member)
+      @if($member['Role'] == 'Patient')
       <tr id="Myid">
         <th scope="row">1</th>
-        <td>Esraa</td>
-        <td>Ali</td>
-        <td>11</td>
-        <td>sjks@patient.com</td>
-        <td>lksj</td>
-        <td>012983</td>
-        <td>female</td>
-        <td><button id="delete" onclick="toggleText()">Delete</button></td>
-
+        <td>{{$member['fname']}}</td>
+        <td>{{$member['mname']}}</td>
+        <td>{{$member['ssn']}}</td>
+        <td>{{$member['email']}}</td>
+        <td>{{$member['gender']}}</td>
+        <td>{{$member['phone_number1']}}</td>
+        <td>{{$member['birth_date']}}</td>
+        {{-- <td><button id="delete" onclick="toggleText()">Delete</button></td> --}}
+        <td><a id="delete" href={{"deletepatient/".$member['id']}}>Delete</a></td>
       </tr>
-      
+      @endif 
+      @endforeach
     </tbody>
   </table>
 </div>
 
 <!-- modal popup -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-l"> 
+ <div class="modal-dialog modal-l">
     <div class="modal-content" >
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalLabel" style="margin:0;">Add Patient </h3>
@@ -129,7 +132,7 @@
         <label for="diagnosis">Diagnosis:</label><br>
         <input type="text" id="diagnosis" name="diagnosis" required
         tabindex="4" placeholder="Enter patient's diagnosis."> <br>
-      
+
         <label for="insurance">Insurance provider:</label><br>
         <input type="text" id="insurance" name="insurance" required
         tabindex="4" placeholder="Enter patient's insurance info."> <br>
@@ -150,14 +153,14 @@
         <!-- exit date part -->
         <label for="exit_date">Date of discharge:</label> <br>
         <input type="date" id="exit_date" name="exit_date"> <br>
-        
+
         <label for="exit_date">Uplode patient's scans.</label> <br>
 
             <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" >
-            
+
             <label for="exit_date">Uplode patient's history.</label> <br>
             <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" ><br>
-        
+
       </form>
       </div>
       <div class="modal-footer">
@@ -171,4 +174,3 @@
 </body>
 </html>
 
-  
