@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('styling/fontawesome-free-6.0.0-web/css/all.css') }}">
 
     <link rel="stylesheet" href="{{ asset('styling/bootstrap/bootstrap.min.css') }}">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @yield('css')
 
     <title>Document</title>
