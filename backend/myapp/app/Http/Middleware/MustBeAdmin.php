@@ -17,7 +17,7 @@ class MustBeAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()?->role != "admin") {
+        if (auth()->user()?->Role != "Admin") {
             abort(Response::HTTP_FORBIDDEN);
         }
         return $next($request);

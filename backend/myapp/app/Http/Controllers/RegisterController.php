@@ -29,28 +29,28 @@ class RegisterController extends Controller
             'fname' => 'required|alpha',
             'mname' => 'required|alpha',
             'lname' => 'required|alpha',
-            'birthdate' => 'required|date|before:today',
+            'birth_date' => 'required|date|before:today',
             'gender' => 'required',
             'ssn' => 'required|numeric|unique:users,ssn',
-            'num1' => ['required', 'regex:/^01(\d){9}$/'],
-            'num2' => ['regex:/^01(\d){9}$/', "nullable"],
+            'phone_number1' => ['required', 'regex:/^01(\d){9}$/'],
+            'phone_number2' => ['regex:/^01(\d){9}$/', "nullable"],
         ]);
-        if (request()->input("insurance") == 'NULL') {
+        if (request()->input("insurance_provider") == 'NULL') {
             $insurance = null; // 
         } else {
-            $insurance = request()->insurance;
+            $insurance = request()->insurance_provider;
         }
-        if (request()->input("num2") == '') {
+        if (request()->input("phone_number2") == '') {
             $num2 = null;
         } else {
-            $num2 = request()->input('num2');
+            $num2 = request()->input('phone_number2');
         }
 
         $user = User::create([
             ...$attributes,
-            'role' => 'patient',
-            'insurance' => $insurance,
-            'num2' => $num2
+            'Role' => 'Patient',
+            'insurance_provider' => $insurance,
+            'phone_number2' => $num2
 
 
         ]);

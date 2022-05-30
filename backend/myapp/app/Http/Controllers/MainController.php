@@ -11,7 +11,8 @@ use App\Models\User;
 
 class MainController extends Controller
 {
-    function index(){
+    function index()
+    {
         return view('patient_signin');
     }
 
@@ -26,58 +27,56 @@ class MainController extends Controller
             'email' => $request->get('email'),
             'password' => $request->get('password')
         );
-        
-        if(Auth::attempt($user_data))
-        {
+
+        if (Auth::attempt($user_data)) {
+
             return redirect('/successlogin');
-        }
-        else {
+        } else {
             return back()->with('error', 'email or password is wrong');
         }
-
-        
-        
     }
-    function successlogin (){
-        if(Auth::user()->Role == "Patient"){
-        return view('dashboard_patient');
+    function successlogin()
+    {
+        if (Auth::user()->Role == "Patient") {
+            return view('dashboard_patient');
         }
-        if(Auth::user()->Role == "Admin"){
+        if (Auth::user()->Role == "Admin") {
             return view('dashboard');
         }
-        if(Auth::user()->Role == "Doctor"){
+        if (Auth::user()->Role == "Doctor") {
             return view('doctor_dashboard_appo');
         }
     }
 
-     function logout() {
+    function logout()
+    {
         Auth::logout();
         return redirect('/');
-      }
-
-      function listpatient(){
-          $data = User::all();
-          return view('dashboard_ad_patient', ['members'=> $data]);
-
-      }
-
-      function listdoctor(){
-        $data = User::all();
-        return view('dashboard_ad_doctors', ['members'=> $data]);
-
     }
 
-      function deletepatient($id){
-      $data = User::find($id);
-      $data->delete();
-      return redirect('/adminpatients');
-      }
+    function listpatient()
+    {
+        $data = User::all();
+        return view('dashboard_ad_patient', ['members' => $data]);
+    }
 
-      function deletedoctor($id){
+    function listdoctor()
+    {
+        $data = User::all();
+        return view('dashboard_ad_doctors', ['members' => $data]);
+    }
+
+    function deletepatient($id)
+    {
+        $data = User::find($id);
+        $data->delete();
+        return redirect('/adminpatients');
+    }
+
+    function deletedoctor($id)
+    {
         $data = User::find($id);
         $data->delete();
         return redirect('/admindoctors');
-        }
-      
-
+    }
 }
