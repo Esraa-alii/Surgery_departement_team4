@@ -18,28 +18,31 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">SSN</th>
                 <th scope="col">Mail</th>
-                <th scope="col">Address</th>
-                <th scope="col">phone</th>
                 <th scope="col">Gender</th>
+                <th scope="col">phone</th>
+                <th scope="col">birth Date</th>
                 <th scope="col"></th>
 
 
             </tr>
         </thead>
         <tbody>
-            <tr id="Myid">
-                <th scope="row">1</th>
-                <td>Esraa</td>
-                <td>Ali</td>
-                <td>11</td>
-                <td>sjks@patient.com</td>
-                <td>lksj</td>
-                <td>012983</td>
-                <td>female</td>
-                <td><button id="delete" onclick="toggleText()">Delete</button></td>
-
-            </tr>
-
+            @foreach ($members as $member)
+                @if ($member['Role'] == 'Patient')
+                    <tr id="Myid">
+                        <th scope="row">1</th>
+                        <td>{{ $member['fname'] }}</td>
+                        <td>{{ $member['mname'] }}</td>
+                        <td>{{ $member['ssn'] }}</td>
+                        <td>{{ $member['email'] }}</td>
+                        <td>{{ $member['gender'] }}</td>
+                        <td>{{ $member['phone_number1'] }}</td>
+                        <td>{{ $member['birth_date'] }}</td>
+                        {{-- <td><button id="delete" onclick="toggleText()">Delete</button></td> --}}
+                        <td><a id="delete" href={{ 'deletepatient/' . $member['id'] }}>Delete</a></td>
+                    </tr>
+                @endif
+            @endforeach
         </tbody>
     </table>
     </div>

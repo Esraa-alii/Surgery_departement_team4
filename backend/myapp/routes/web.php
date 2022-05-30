@@ -3,7 +3,9 @@
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AddDoctor;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
+use App\Http\Controllers\MainController;
+use Illuminate\Contracts\Foundation\MaintenanceMode;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,14 @@ Route::get('/patientdashboard', function () {
 })->name('patientdashboard');
 
 
-// Route::get('/', function () {
-//     return view('patient_signin');
-// })->name('signin');
+
+Route::get('/admindashboard', function () {
+    return view('dashboard');
+})->name('admindashboard');
+
+
+
+
 //-----------------------------------------------
 
 
@@ -50,6 +57,10 @@ Route::get('/patientdashboard', function () {
 Route::get('/doctorappointments', function () {
     return view('doctor_dashboard_appo');
 })->name('doctorappo');
+
+Route::get('/doctortasks', function () {
+    return view('doctor_dashboard_tasks');
+})->name('doctortasks');
 
 Route::get('/doctorpatients', function () {
     return view('doctor_dashboard_pat');
@@ -75,17 +86,32 @@ Route::get('/admintasks', function () {
     return view('dashboard_ad_tasks');
 })->name('admintasks');
 
-Route::get('/adminpatients', function () {
-    return view('dashboard_ad_patient');
-})->name("adminpatients");
+Route::get('/adminpatients', [MainController::class, 'listpatient'])->name("adminpatients");
+Route::get('/admindoctors', [MainController::class, 'listdoctor'])->name('admindoctors');
 
-// Route::get('/admindoctors', function () {
-//     return view('dashboard_ad_doctors');
-// })->name('admindoctors');
 
 Route::get('/adminappointments', function () {
     return view('dashboard_ad_appo');
 })->name('adminappo');
+Route::post('patientSignin', [MainController::class, 'checklogin']);
+Route::get('/successlogin', [MainController::class, 'successlogin']);
+Route::get('/logout', [MainController::class, 'logout'])->name('logout');
+Route::post('/checklogin', [MainController::class, 'checklogin']);
+
+
+
+
+
+
+Route::get('deletepatient/{id}', [MainController::class, 'deletepatient']);
+
+Route::get('deletedoctor/{id}', [MainController::class, 'deletedoctor']);
+
+
+
+
+
+
 
 
 //-----------------------------------------------
@@ -99,6 +125,19 @@ Route::get("register", [RegisterController::class, 'create'])->middleware('guest
 Route::post("register", [RegisterController::class, 'store'])->middleware('guest');
 //-----------------------------------------------
 
+
+
+
+//-----------------------------------------------
+/// sign in
+Route::get('/signin', function () {
+    return view('patient_signin');
+})->name('signin')->middleware('guest');
+//-----------------------------------------------
+
+
+//-----------------------------------------------
+
 // add doctor
 
 
@@ -107,8 +146,6 @@ Route::post("register", [RegisterController::class, 'store'])->middleware('guest
 
 
 Route::post("adddoctor", [AddDoctor::class, 'store']);
-Route::get('/', function () {
-    return view('dashboard_ad_doctors');
-})->name('admindoctors');
+
 
 //-----------------------------------------------

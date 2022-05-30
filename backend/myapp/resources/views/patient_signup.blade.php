@@ -3,13 +3,12 @@
 
 <head>
     <title>Patient sign up.</title>
-    <link rel="stylesheet" href='{{ asset('styling/css/patient_signin.css') }}'>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../bootstrap/bootstrap.min.css"> -->
     <link rel="stylesheet" href='{{ asset('styling/fontawesome-free-6.0.0-web/css/all.css') }}'>
-
+    <link rel="stylesheet" href="{{ asset('styling/css/patient_signin.css') }}">
 </head>
 
 <body>
@@ -50,7 +49,7 @@
 
             <!-- birthdate part -->
             <label for="birth_date">Birth date:</label> <br>
-            <input value="{{ old('birthdate') }}" type="date" id="birth_date" name="birthdate" required>
+            <input value="{{ old('birth_date') }}" type="date" id="birth_date" name="birth_date" required>
 
             <!-- gender part -->
             <label for="gender">Gender:</label>
@@ -75,7 +74,7 @@
             <input type="text" id="insurance" name="insurance" required placeholder="enter patient's insurance info."> --}}
 
             <label for="insurance">Insurance provider:</label>
-            <select name="insurance" value="{{ old('insurance') }}" id="insurance">
+            <select name="insurance_provider" value="{{ old('insurance_provider') }}" id="insurance_provider">
 
                 <option value="Misr">Misr Life Insurance</option>
                 <option value="Allianz">Allianz Life</option>
@@ -90,13 +89,13 @@
 
             <!-- phone numer part -->
             <label for="telphone">Phone Number 1:</label> <br>
-            <input value="{{ old('num1') }}" type="tel" id="telephone1" name="num1" placeholder="01012345678"
-                maxlength="11" required />
+            <input value="{{ old('phone_number1') }}" type="tel" id="phone_number1" name="phone_number1"
+                placeholder="01012345678" maxlength="11" required />
             <br>
 
             <label for="telphone">Phone Number 2:</label> <br>
-            <input value="{{ old('num2') }}" type="tel" id="telephone2" name="num2" placeholder="01012345678"
-                maxlength="11" /> <br>
+            <input value="{{ old('phone_number2') }}" type="tel" id="phone_number2" name="phone_number2"
+                placeholder="01012345678" maxlength="11" /> <br>
 
             <!-- submit button -->
             <div class="clearfix">

@@ -23,16 +23,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr id="Myid">
-                <th scope="row">1</th>
-                <td>Esraa</td>
-                <td>Ali</td>
-                <td>11</td>
-                <td>skj@doc.com</td>
-                <td>01111111111</td>
-                <td>female</td>
-                <td><button id="delete" onclick="toggleText()">Delete</button></td>
-            </tr>
+            @foreach ($members as $member)
+                @if ($member['Role'] == 'Doctor')
+                    <tr id="Myid">
+                        <th scope="row">1</th>
+                        <td>{{ $member['fname'] }}</td>
+                        <td>{{ $member['mname'] }}</td>
+                        <td>{{ $member['ssn'] }}</td>
+                        <td>{{ $member['email'] }}</td>
+                        <td>{{ $member['phone_number1'] }}</td>
+                        <td>{{ $member['gender'] }}</td>
+                        <td><a id="delete" href={{ 'deletedoctor/' . $member['id'] }}>Delete</a></td>
+                    </tr>
+                @endif
+            @endforeach
         </tbody>
     </table>
     </div>
@@ -63,7 +67,7 @@
 
                         <!-- birthdate part -->
                         <label for="birthdate">Birth date:</label> <br>
-                        <input type="date" id="birthdate" name="birthdate" required><br>
+                        <input type="date" id="birth_date" name="birth_date" required><br>
                         <!-- gener part -->
                         <label for="gender">Gender:</label><br>
                         <select name="gender" id="gender" required>
@@ -98,10 +102,11 @@
 
                         <!-- phone numer part -->
                         <label for="num1">Phone Number 1:</label> <br>
-                        <input type="tel" id="num1" name="num1" maxlength="11" minlength="11" required /> <br>
+                        <input type="tel" id="phone_number1" name="phone_number1" maxlength="11" minlength="11" required />
+                        <br>
 
                         <label for="num2">Phone Number 2:</label> <br>
-                        <input type="tel" id="num2" name="num2" minlength="11" maxlength="11" /> <br>
+                        <input type="tel" id="phone_number2" name="phone_number2" minlength="11" maxlength="11" /> <br>
                         <!-- Submit button -->
 
                         <div class="modal-footer">
