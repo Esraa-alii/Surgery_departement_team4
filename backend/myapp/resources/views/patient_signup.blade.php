@@ -13,22 +13,39 @@
 </head>
 
 <body>
-    <div class="title-bar">
+    <!-- <div class="title-bar">
         <p>Patient sign up</p>
-    </div>
-    <div class="middle-cont">
+    </div> -->
+    <div class="content">
         <!-- FOR BACK END: file name is "addPatient.php", change accordingly -->
-        <form class="add-patient-form" action="{{ url('/register') }}" autocomplete="on" method="post">
+        <img src="{{asset('styling/css/img/signin_wallpaper.png')}}" alt="photo" id="image" class="left">
+        <div id="color" class="left"></div>
+        <div id="quote" class="left"> How can <br> we help you?</div>
+      <div class="right">
+        <form class="add-patient-form" action="{{ url('/register') }}"
+            autocomplete="on"  method="post">
             @csrf
             <h1>Sign up</h1>
-            <p>Please fill out ths following data.</p>
+            <p>Please fill out the following data.</p>
+            <!-- error message for backend -->
+            @if ($errors->any())
+              <div class="alert-block">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li><p>{{ $error }}</p></li>
+                    @endforeach
+                </ul>
+              </div>
+
+            @endif
+            <!-- end of error message -->
             <hr>
             <!-- username field -->
             <label for="email"><b>Email</b></label>
             <input value="{{ old('email') }}" type="email" placeholder="Enter Email" name="email" required
                 maxlength="50" tabindex="0">
             {{-- @error('email')
-                <p class="text-red-500 text-xs mt-1">{{ Smessage }}</p>I
+                <p class="alert-block">{{ Smessage }}</p>I
             @enderror --}}
             <!-- password field -->
             <label for="ppsw"><b>Password</b></label>
@@ -97,26 +114,14 @@
             <label for="telphone">Phone Number 2:</label> <br>
             <input value="{{ old('phone_number2') }}" type="tel" id="phone_number2" name="phone_number2"
                 placeholder="01012345678" maxlength="11" /> <br>
-
             <!-- submit button -->
             <div class="clearfix">
                 <button type="submit" class="signupbtn">Sign up</button>
-                @if ($errors->any())
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li class="text-red-500 text-xs">{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                @endif
             </div>
         </form>
         <!-- end of form -->
+      </div>
     </div>
-    {{-- @if (session()->has('warning'))
-            <div class="alert alert-warning">
-                <strong>{{ session('warning') }}</strong>
-            </div>
-        @endif --}}
 
 </body>
 

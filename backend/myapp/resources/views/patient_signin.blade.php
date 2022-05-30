@@ -32,18 +32,19 @@
          {{-- <script>window.location ="/dashboardpatient";</script> --}}
          @endif
 
-          @if ($message = Session::get('error'))
-          <div class="alert alert-danger alert-block">
-            <strong>{{ $message }}</strong>
-          </div>
-          @endif
+        @if ($message = Session::get('error'))
+        <div class="alert-block">
+          <p>
+          <strong>{{ $message }}</strong></p>
+        </div>
+        @endif
 
 
           @if (count($errors) > 0)
-                <div class="alert alert-danger">
+                <div class="alert-block">
                   <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{$error}}</li>
+                        <li><p>{{$error}}</p></li>
                     @endforeach
                   </ul>
                 </div>

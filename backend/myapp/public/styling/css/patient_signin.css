@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   min-width: 100%
   font-size: 15px;
-  background-color: #dfe3e5  !important;
+  background-color: #1C2738  !important;
   letter-spacing: 3px;
 }
 
@@ -22,15 +22,12 @@ html, body {
   height:12%;
   margin-bottom: 2%;
 }
-.title-bar p{
-  color:white;
-}
+
 
 .middle-cont {
   width:50%;
   margin: auto;
   background-color: #dfe3e5;
-
 }
 
 /* form stuff */
@@ -82,7 +79,10 @@ button:hover {
   opacity:1;
 }
 
-
+/* Warning message stling */
+.alert-block p {
+  color: red;
+}
 .clearfix {
   display:flex;
   justify-content: center;
@@ -130,7 +130,6 @@ background-color: white;
     top: 10%;
     left: 10%;
     border-radius: 30px;
-    /* border: solid 2px black; */
 }
 .left{
     border-radius: 30px;
@@ -178,6 +177,7 @@ background-color: white;
   color: #1f3a55;
   font-size: large;
   font-family: 'Century Gothic';
+  padding-right:5px;
 
 }
 @media screen and (max-width: 400px) {
