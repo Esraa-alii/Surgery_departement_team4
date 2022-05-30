@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="../bootstrap/bootstrap.min.css"> -->
     <link rel="stylesheet" href='{{ asset('styling/fontawesome-free-6.0.0-web/css/all.css') }}'>
     <link rel="stylesheet" href="{{ asset('styling/css/patient_signin.css') }}">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
@@ -112,10 +113,10 @@
         <!-- end of form -->
     </div>
     {{-- @if (session()->has('warning'))
-        <div class="alert alert-warning">
-            <strong>{{ session('warning') }}</strong>
-        </div>
-    @endif --}}
+            <div class="alert alert-warning">
+                <strong>{{ session('warning') }}</strong>
+            </div>
+        @endif --}}
 
 </body>
 
