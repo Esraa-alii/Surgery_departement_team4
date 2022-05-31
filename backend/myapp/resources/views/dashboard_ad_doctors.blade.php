@@ -86,9 +86,6 @@
                         <!-- password field -->
                         <label for="ppsw"><b>Password</b></label> <br>
                         <input type="password" placeholder="Enter Password" name="password" required maxlength="50"><br>
-
-
-
                         <!-- Address part -->
                         {{-- <label for="city">City:</label> <br>
                         <input type="text" id="city" name="city" required> <br>
@@ -119,8 +116,6 @@
                                 @endforeach
                             </ul>
                         @endif
-
-
                     </form>
 
                 </div>

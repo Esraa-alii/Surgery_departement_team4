@@ -23,7 +23,7 @@
         <div id="quote" class="left"> How can <br> we help you?</div>
       <div class="right">
         <form class="add-patient-form" action="{{ url('/register') }}"
-            autocomplete="on"  method="post">
+            autocomplete="on"  method="post" enctype="multipart/form-data">
             @csrf
             <h1>Sign up</h1>
             <p>Please fill out the following data.</p>
@@ -64,6 +64,13 @@
             <input value="{{ old('lname') }}" type="text" id="lname" name="lname" required
                 placeholder="Enter your last name" maxlength="25"> <br>
             <!-- end of name part -->
+
+            <!-- profile picture part -->
+            <label for="pfp">Upload your profile picture (Optional)</label> <br>
+            <input type="file" class="form-control"  id="inputGroupFile04"
+            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="pfp"
+            accept="image/*"> <br>
+            <!-- end of profile picutre part -->
 
             <!-- birthdate part -->
             <label for="birth_date">Birth date:</label> <br>
