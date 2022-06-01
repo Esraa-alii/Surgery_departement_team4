@@ -4,8 +4,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AddDoctor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+// use Google\Service\AIPlatformNotebooks\Event;
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Support\Facades\Hash;
+use Spatie\GoogleCalendar\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,5 +149,30 @@ Route::get('/signin', function () {
 
 Route::post("adddoctor", [AddDoctor::class, 'store']);
 
+
+//-----------------------------------------------
+
+
+//-----------------------------------------------
+/// Testing the calendar
+
+Route::get('/test', function () {
+
+    $event = new Event;
+    $event->name = 'A new event';
+    $event->description = 'Event description';
+    $event->startDateTime = Carbon\Carbon::now();
+    $event->endDateTime = Carbon\Carbon::now()->addHour();
+
+
+    $event->save();
+    dd($event);
+
+    // dd($e -> startDateTime->toDateTimeString());
+    // dd($e -> summary);
+
+
+
+});
 
 //-----------------------------------------------
