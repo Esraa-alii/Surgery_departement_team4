@@ -15,6 +15,7 @@ class AddDoctor extends Controller
     public function store()
     {
 
+        // ddd(request()->all());
 
         $attributes = request()->validate([
             'email' => 'required|email|max:255|min:5|unique:users,email',
@@ -36,12 +37,12 @@ class AddDoctor extends Controller
             $num2 = request()->input('phone_number2');
         }
 
-        $filename =NULL;
-        if(request()->hasFile('profile_image')){
+        $filename = NULL;
+        if (request()->hasFile('profile_image')) {
             $file = request()->file('profile_image');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().".".$extention;
-            $file->move('uploads/pictures/',$filename);
+            $filename = time() . "." . $extention;
+            $file->move('uploads/pictures/', $filename);
         }
 
         $user = User::create([

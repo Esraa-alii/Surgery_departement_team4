@@ -30,7 +30,7 @@ class RegisterController extends Controller
             'fname' => 'required|alpha',
             'mname' => 'required|alpha',
             'lname' => 'required|alpha',
-            'profile_image' => 'required|image|mimes:jpeg,png,jpg|max:5120',
+            'profile_image' => 'image|mimes:jpeg,png,jpg|max:5120',
             'birth_date' => 'required|date|before:today',
             'gender' => 'required',
             'ssn' => 'required|numeric|unique:users,ssn',
@@ -47,12 +47,12 @@ class RegisterController extends Controller
         } else {
             $num2 = request()->input('phone_number2');
         }
-        $filename =NULL;
-        if(request()->hasFile('profile_image')){
+        $filename = NULL;
+        if (request()->hasFile('profile_image')) {
             $file = request()->file('profile_image');
             $extention = $file->getClientOriginalExtension();
-            $filename = time().".".$extention;
-            $file->move('uploads/pictures/',$filename);
+            $filename = time() . "." . $extention;
+            $file->move('uploads/pictures/', $filename);
         }
 
         $user = User::create([

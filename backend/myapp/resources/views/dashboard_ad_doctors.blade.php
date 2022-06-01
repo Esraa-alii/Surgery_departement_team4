@@ -49,7 +49,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="add-staff-form" action="{{ url('adddoctor') }}" autocomplete="on" method="post">
+                    <form class="add-staff-form" action="{{ url('adddoctor') }}" autocomplete="on" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <!-- Name part -->
                         <label for="fname">First name:</label> <br>
@@ -89,9 +90,9 @@
 
                         <!-- profile picture part -->
                         <label for="pfp">Upload your profile picture (Optional)</label> <br>
-                        <input type="file" class="form-control"  id="inputGroupFile04"
-                               aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="profile_image"
-                               accept="image/*"> <br>
+                        <input type="file" class="form-control" id="inputGroupFile04" required
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="profile_image"
+                            accept="image/*"> <br>
                         <!-- end of profile picutre part -->
 
                         <!-- Address part -->
