@@ -14,9 +14,9 @@
 
 <body>
     <div class="sidebar">
-        <img src="{{ asset('styling/css/img/blank-profile-picture-973460_640.png') }}" alt="profile"
+        <img src="{{ asset('uploads/pictures/'.Auth::user()->profile_image) }}" width="70px" height="140px" alt="profile"
             id="side_profile">
-        <h2>Doctor Name</h2>
+        <h2>{{ Auth::user()->fname }}</h2>
         <p class="vertical_line"> </p>
 
 
@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h3 class="title"> Doctor Dashboard</h5>
+                <h3 class="title"> Doctor Dashboard</h3>
             </div>
             <div class="  col-">
                 <div class="right">

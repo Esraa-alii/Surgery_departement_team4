@@ -149,3 +149,6 @@ Route::post("adddoctor", [AddDoctor::class, 'store']);
 
 
 //-----------------------------------------------
+
+
+

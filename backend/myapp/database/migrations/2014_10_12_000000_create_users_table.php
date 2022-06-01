@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('mname');
             $table->string('lname');
             $table->string('email')->unique();
+            $table->string('profile_image');
             $table->date('birth_date');
             $table->string('gender');
             $table->string('Role');

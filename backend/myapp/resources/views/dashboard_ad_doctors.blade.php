@@ -86,6 +86,14 @@
                         <!-- password field -->
                         <label for="ppsw"><b>Password</b></label> <br>
                         <input type="password" placeholder="Enter Password" name="password" required maxlength="50"><br>
+
+                        <!-- profile picture part -->
+                        <label for="pfp">Upload your profile picture (Optional)</label> <br>
+                        <input type="file" class="form-control"  id="inputGroupFile04"
+                               aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="profile_image"
+                               accept="image/*"> <br>
+                        <!-- end of profile picutre part -->
+
                         <!-- Address part -->
                         {{-- <label for="city">City:</label> <br>
                         <input type="text" id="city" name="city" required> <br>

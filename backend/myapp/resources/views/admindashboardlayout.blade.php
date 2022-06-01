@@ -16,8 +16,8 @@
 
 <body>
     <div class="sidebar">
-        <img src="{{ asset('styling/css/img/blank-profile-picture-973460_640.png') }}" alt="profile"
-            id="side_profile">
+        <img src="{{ asset('uploads/pictures/'.Auth::user()->profile_image) }}" width="70px" height="180px" alt="profile"
+             id="side_profile">
         <h2>{{ Auth::user()->fname }}</h2>
         <p class="vertical_line"> </p>
 
@@ -38,7 +38,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h3 class="title"> Admin Dashboard</h5>
+                <h3 class="title"> Admin Dashboard</h3>
             </div>
 
         </div>

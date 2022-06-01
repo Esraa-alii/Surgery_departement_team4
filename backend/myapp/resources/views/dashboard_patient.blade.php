@@ -18,8 +18,8 @@
 
     @if (isset(Auth::user()->email))
         <div class="sidebar">
-            <img src="{{ asset('styling/css/img/blank-profile-picture-973460_640.png') }}" alt="profile"
-                id="side_profile">
+            <img src="{{ asset('uploads/pictures/'.Auth::user()->profile_image) }}" width="70px" height="180px" alt="profile"
+                 id="side_profile">
             <h2>{{ Auth::user()->fname }}</h2>
 
 
