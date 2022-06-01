@@ -95,6 +95,7 @@ body{
 
 .loader{
     background: url(../html/homeimg/presentation.gif) no-repeat center center;
+    background-size: cover;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -908,7 +909,7 @@ button{
 .last-news .news-box .news-content1{
     width: 286px;
     height: 60px;
-    font-size: 36px;
+    font-size: 34px;
     color: rgb(21, 96, 100);
     margin-left: 76px;
     margin-top: -34px;
