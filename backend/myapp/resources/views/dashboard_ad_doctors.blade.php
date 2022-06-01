@@ -90,7 +90,7 @@
 
                         <!-- profile picture part -->
                         <label for="pfp">Upload your profile picture (Optional)</label> <br>
-                        <input type="file" class="form-control" id="inputGroupFile04" required
+                        <input type="file" class="form-control" id="inputGroupFile04"
                             aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="profile_image"
                             accept="image/*"> <br>
                         <!-- end of profile picutre part -->

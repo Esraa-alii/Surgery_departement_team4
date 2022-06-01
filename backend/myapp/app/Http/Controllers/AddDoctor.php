@@ -23,7 +23,7 @@ class AddDoctor extends Controller
             'fname' => 'required|alpha',
             'mname' => 'required|alpha',
             'lname' => 'required|alpha',
-            'profile_image' => 'required|image|mimes:jpeg,png,jpg|max:5120',
+            'profile_image' => 'image|mimes:jpeg,png,jpg|max:5120',
             'birth_date' => 'required|date|before:today',
             'gender' => 'required',
             'ssn' => 'required|numeric|unique:users,ssn',
