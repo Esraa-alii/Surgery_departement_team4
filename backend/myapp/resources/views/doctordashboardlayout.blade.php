@@ -14,9 +14,14 @@
 
 <body>
     <div class="sidebar">
-        <img src="{{ asset('styling/css/img/blank-profile-picture-973460_640.png') }}" alt="profile"
-            id="side_profile">
-        <h2>Doctor Name</h2>
+        @if (Auth::user()->profile_image == null)
+            <img src="{{ asset('styling\css\img\blank-profile-picture-973460_640.png') }}" width="70px" height="180px"
+                alt="profile" id="side_profile">
+        @else
+            <img src="{{ asset('uploads/pictures/' . Auth::user()->profile_image) }}" width="70px" height="180px"
+                alt="profile" id="side_profile">
+        @endif
+        <h2>{{ Auth::user()->fname }}</h2>
         <p class="vertical_line"> </p>
 
 
@@ -36,6 +41,7 @@
 
         <div class="row">
 
+
             <div class="container">
                 <div class="row">
                     <div class="col d-flex">
@@ -43,6 +49,7 @@
                         <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
                     </div>
                 </div>
+
             </div>
             <div class="  col-">
                 <div class="right">
