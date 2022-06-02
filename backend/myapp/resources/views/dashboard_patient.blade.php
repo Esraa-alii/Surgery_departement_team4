@@ -37,8 +37,11 @@
     @endif
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h3 class="title"> Patient Dashboard</h3>
+            <div class="row">
+                <div class="col d-flex">
+                    <h3 class="title mb-0"> Patient Dashboard</h3>
+                    <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
+                </div>
             </div>
 
 
@@ -48,6 +51,8 @@
     </div>
     </div>
     <div class="contentt">
+        <img src="{{asset("styling/css/img/gray-and-white-gradient-abstract-vector.png")}}" alt="background" id="background">
+
         <div id="details">
             <h2> Your operation's details </h2><br>
             <p> your surgery will be on : Mon 29/5 </p>
@@ -87,8 +92,11 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     @if (session()->has('success'))

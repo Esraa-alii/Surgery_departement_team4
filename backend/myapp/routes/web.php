@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Hash;
 */
 
 
+//----------------------------------------------
+///// Homepage
+Route::get('/', function () {
+    return view('homepage');
+})->name('homepage');
 
 
 
