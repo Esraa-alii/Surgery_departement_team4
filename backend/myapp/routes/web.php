@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Hash;
 */
 
 
+//----------------------------------------------
+///// Homepage
+Route::get('/', function () {
+    return view('homepage');
+})->name('homepage');
 
 
 
@@ -121,8 +126,8 @@ Route::get('deletedoctor/{id}', [MainController::class, 'deletedoctor']);
 
 /// sign up
 
-Route::get("register", [RegisterController::class, 'create'])->middleware('guest');
-Route::post("register", [RegisterController::class, 'store'])->middleware('guest');
+Route::get("register", [RegisterController::class, 'create']);
+Route::post("register", [RegisterController::class, 'store']);
 //-----------------------------------------------
 
 

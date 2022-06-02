@@ -33,9 +33,16 @@
         <a href="{{ route('logout') }}"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
     </div>
     <div class="container">
+
         <div class="row">
-            <div class="col">
-                <h3 class="title"> Doctor Dashboard</h5>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex">
+                        <h3 class="title mb-0"> Doctor Dashboard</h3>
+                        <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
+                    </div>
+                </div>
             </div>
             <div class="  col-">
                 <div class="right">
@@ -49,7 +56,10 @@
     </div>
 
     <div class="contentt">
+
         @yield('content')
+        <img src="{{asset("styling/css/img/gray-and-white-gradient-abstract-vector.png")}}" alt="background" id="background">
+
     </div>
 
     @yield('js')
