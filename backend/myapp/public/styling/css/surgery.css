@@ -56,7 +56,7 @@ body{
 .floating-box .right-button{
     width: 50px;
     height: 50px;
-    background: url("public/styling/homeimg/appointment-icon.png");
+    background: url("../homeimg/appointment-icon.png");
     border-radius: 100%;
     background-repeat: no-repeat;
     background-color: #fff;
@@ -94,7 +94,7 @@ body{
 /* The intro page (splash screen) =========================================================*/
 
 .loader{
-    background: url("public/styling/homeimg/appointment-icon.png") no-repeat center center;
+    background: url("../homeimg/presentation.gif") no-repeat center center;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -122,7 +122,7 @@ body{
 .Header{
     width: 100%;
     height: 92vh;
-    background-image: linear-gradient(rgb(9 29 32 / 78%),rgb(9 29 32 / 87%)),url("public/styling/homeimg/background.jpg");
+    background-image: linear-gradient(rgb(9 29 32 / 78%),rgb(9 29 32 / 87%)),url("../homeimg/background.jpg");
     background-size: cover;
     background-position: center;
     border-bottom-left-radius: 128px;
@@ -142,7 +142,7 @@ body{
     /* justify-content: space-between; */
     z-index: 101;
     height: 111px;
-    background: url("public/styling/homeimg/navbar-back.PNG");
+    background: url("../homeimg/navbar-back.PNG");
 }
 
 
@@ -802,7 +802,7 @@ button{
 
 
 .last-news{
-    background-image: url("public/styling/homeimg/last-news.jpg");
+    background-image: url("../homeimg/last-news.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
@@ -853,7 +853,7 @@ button{
 
 
 .new-box-image  .img-big-circle{
-    background-image: url("public/styling/homeimg/conference2.jpeg");
+    background-image: url("../homeimg/conference2.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 350px;
@@ -866,7 +866,7 @@ button{
 }
 
 .new-box-image .img-small-circle1{
-    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url("public/styling/homeimg/conference1.jpeg");
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url("../homeimg/conference1.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 200;
@@ -878,7 +878,7 @@ button{
 }
 
 .new-box-image .img-small-circle2{
-    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url("public/styling/homeimg/conference.jpeg");
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url("../homeimg/conference.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 200;
