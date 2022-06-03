@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -51,7 +52,7 @@ class MainController extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/signin');
     }
 
     function listpatient()
@@ -79,4 +80,6 @@ class MainController extends Controller
         $data->delete();
         return redirect('/admindoctors');
     }
+
 }
+

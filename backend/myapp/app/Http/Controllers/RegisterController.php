@@ -6,6 +6,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Unique;
+use phpDocumentor\Reflection\Types\Null_;
 
 
 class RegisterController extends Controller
@@ -29,6 +30,7 @@ class RegisterController extends Controller
             'fname' => 'required|alpha',
             'mname' => 'required|alpha',
             'lname' => 'required|alpha',
+            'profile_image' => 'image|mimes:jpeg,png,jpg|max:5120',
             'birth_date' => 'required|date|before:today',
             'gender' => 'required',
             'ssn' => 'required|numeric|unique:users,ssn',
@@ -36,7 +38,7 @@ class RegisterController extends Controller
             'phone_number2' => ['regex:/^01(\d){9}$/', "nullable"],
         ]);
         if (request()->input("insurance_provider") == 'NULL') {
-            $insurance = null; // 
+            $insurance = null; //
         } else {
             $insurance = request()->insurance_provider;
         }
@@ -45,13 +47,20 @@ class RegisterController extends Controller
         } else {
             $num2 = request()->input('phone_number2');
         }
+        $filename = NULL;
+        if (request()->hasFile('profile_image')) {
+            $file = request()->file('profile_image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extention;
+            $file->move('uploads/pictures/', $filename);
+        }
 
         $user = User::create([
             ...$attributes,
             'Role' => 'Patient',
             'insurance_provider' => $insurance,
-            'phone_number2' => $num2
-
+            'phone_number2' => $num2,
+            'profile_image' => $filename
 
         ]);
         auth()->login($user);
