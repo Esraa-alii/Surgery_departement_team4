@@ -39,7 +39,8 @@ class MainController extends Controller
     function successlogin()
     {
         if (Auth::user()->Role == "Patient") {
-            return view('dashboard_patient');
+            $data = User::all();
+            return view('dashboard_patient', ['members' => $data]);
         }
         if (Auth::user()->Role == "Admin") {
             return view('dashboard');
@@ -81,5 +82,9 @@ class MainController extends Controller
         return redirect('/admindoctors');
     }
 
+
+    function patientdashboard(){
+
+    }
 }
 

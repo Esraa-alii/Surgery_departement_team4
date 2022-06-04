@@ -20,8 +20,18 @@ function toggleText(){
   }
 }
 function showcardio(){
-  var card = document.getElementById("cardio_doc")
-  var title=document.getElementById("do")
+  var card = document.getElementById("cardio_doc");
+  var title=document.getElementById("do");
+  var urology = document.getElementById("urology_doc");
+
+  card.style.display = "block";
+  title.style.display = "block";
+        urology.style.display = "none";
+      Obstetrics.style.display = "none";
+      neuro.style.display = "none";
+      dental.style.display = "none";
+      ortho.style.display = "none";
+
   // document.getElementById(cardio_doc).innerHTML = "";
   // var urology = document.getElementById("urology_doc")
   // var  Obstetrics = document.getElementById("Obstetrics_docs")
@@ -30,10 +40,10 @@ function showcardio(){
   // var ortho=document.getElementById("Orthopaedic_doc")
 
 
-  if (card.style.display === "none") {
-    } else {
-      card.style.display = "block";
-      title.style.display = "block";
+  // if (card.style.display === "none") {
+  //   } else {
+  //     card.style.display = "block";
+  //     title.style.display = "block";
       // urology.style.display = "none";
       // Obstetrics.style.display = "none";
       // neuro.style.display = "none";
@@ -44,24 +54,33 @@ function showcardio(){
 }
 function showurology(){
   // var card = document.getElementById("cardio_doc")
-  var title=document.getElementById("do")
-  var urology = document.getElementById("urology_doc")
+  var urology = document.getElementById("urology_doc");
+  var title=document.getElementById("do");
+  var card = document.getElementById("cardio_doc");
+
+  urology.style.display = "block"; 
+  title.style.display = "block";
+    Obstetrics.style.display = "none";
+      neuro.style.display = "none";
+      dental.style.display = "none";
+      ortho.style.display = "none";
+      card.style.display = "none";
   // var  Obstetrics = document.getElementById("Obstetrics_docs")
   // var  neuro = document.getElementById("neurological_docs")
   // var  dental = document.getElementById("dental_doc")
   // var ortho=document.getElementById("Orthopaedic_doc")
 
-  if (urology.style.display === "none") {
-    } else {
-      // card.style.display = "none";
-      title.style.display = "block";
-      urology.style.display = "block";
-      // Obstetrics.style.display = "none";
-      // neuro.style.display = "none";
-      // dental.style.display = "none";
-      // ortho.style.display = "none";
+  // if (urology.style.display === "none") {
+  //   } else {
+  //     // card.style.display = "none";
+  //     title.style.display = "block";
+  //     urology.style.display = "block";
+  //     // Obstetrics.style.display = "none";
+  //     // neuro.style.display = "none";
+  //     // dental.style.display = "none";
+  //     // ortho.style.display = "none";
 
-    }
+  //   }
 }
 
 function showObstetrics(){

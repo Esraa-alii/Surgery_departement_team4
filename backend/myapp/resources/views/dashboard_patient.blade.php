@@ -157,88 +157,125 @@
 
             <!-- cardio doc -->
             <div id="cardio_doc">
+             @foreach ($members as $member)
+                 @if ($member['specialization'] == 'cardiothoracic')
+                                
               <label >
                 <input type="radio" name="nature" >
-                <img class="doctors"  src="{{asset("surgeryDepartement/magdy_y.jpeg")}}" alt="conference1">
-                <h4 class="ma">Dr Magdy Yacoub</h4>
+                <img class="doctors"  src="{{ asset('uploads/pictures/' . $member['profile_image']) }}" alt="conference1">
+                <h4 class="ma">Dr {{$member['fname']}} {{$member['mname']}}</h4>
               </label>
-              <label >
+              {{-- <label >
                 <input type="radio" name="nature" >
                 <img class="ahmed" src='{{asset("surgeryDepartement/ahmed helmy.jpeg")}}' alt="conference1">
                 <h4 class="a">Dr Ahmed helmy</h4>
-              </label>
+              </label> --}}
+              @endif
+              @endforeach
             </div>
 
 
             <!-- urology doc -->
             <div id="urology_doc">
+              @foreach ($members as $member)
+              @if ($member['specialization'] == 'urology')
+                             
+           <label >
+             <input type="radio" name="nature" >
+             <img class="doctors"  src="{{ asset('uploads/pictures/' . $member['profile_image']) }}" alt="conference1">
+             <h4 class="ma">Dr {{$member['fname']}} {{$member['mname']}}</h4>
+            </label>
+           {{-- 
               <label >
                 <input type="radio" name="nature" >
                 <img class="abdel"  src="{{asset("surgeryDepartement/abdelnasser.jpeg")}}" alt="conference1">
                 <h4 class="abd">Dr Abd Elnassser</h4>
-              </label>
+              </label> --}}
+              @endif
+              @endforeach
             </div>
 
 
              <!-- Obstetrics doc -->
              <div id="Obstetrics_docs">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="samya"  src="{{asset("surgeryDepartement/samya.jpeg")}}" alt="conference1">
-              <h4 id="sam">Dr Samya Mohamed</h4>
+              @foreach ($members as $member)
+              @if ($member['specialization'] == 'Obstetrics')
+                             
+           <label >
+             <input type="radio" name="nature" >
+             <img class="doctors"  src="{{ asset('uploads/pictures/' . $member['profile_image']) }}" alt="conference1">
+             <h4 class="ma">Dr {{$member['fname']}} {{$member['mname']}}</h4>
             </label>
+            
 
-            <label >
+            {{-- <label >
               <input type="radio" name="nature" >
               <img id="aida"  src="{{asset("surgeryDepartement/Dr.Aida_.jpg")}}" alt="conference1">
               <h4 id="ad">Dr Aida </h4>
-            </label>
+            </label> --}}
+            @endif
+            @endforeach
             </div>
 
             <!-- neurological doc -->
             <div id="neurological_docs">
+              @foreach ($members as $member)
+                 @if ($member['specialization'] == 'neurological')
+                                
               <label >
-              <input type="radio" name="nature" >
-              <img id="nabeel"  src="{{asset("surgeryDepartement/dr.-Mohammed-Nabeel-scaled.jpg")}}" alt="conference1">
-              <h4 id="n">Dr Mohammed Nabeel</h4>
-            </label>
+                <input type="radio" name="nature" >
+                <img class="doctors"  src="{{ asset('uploads/pictures/' . $member['profile_image']) }}" alt="conference1">
+                <h4 class="ma">Dr {{$member['fname']}} {{$member['mname']}}</h4>
+              </label>
 
-            <label >
+            {{-- <label >
               <input type="radio" name="nature" >
               <img id="wael"  src="{{asset("surgeryDepartement/wael mahmoud.jpeg")}}" alt="conference1">
               <h4 id="w">Dr Wael Mahmoud</h4>
-            </label>
+            </label> --}}
+            @endif
+            @endforeach
             </div>
 
             <!-- Orthopaedic doc -->
             <div id="Orthopaedic_doc">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="tayb"  src="{{asset("surgeryDepartement/ahmedeltayeb.png")}}" alt="conference1">
-              <h4 id="t">Dr Ahmed Eltaib</h4>
-            </label>
+              @foreach ($members as $member)
+              @if ($member['specialization'] == 'orthopaedic')
+                             
+           <label >
+             <input type="radio" name="nature" >
+             <img class="doctors"  src="{{ asset('uploads/pictures/' . $member['profile_image']) }}" alt="conference1">
+             <h4 class="ma">Dr {{$member['fname']}} {{$member['mname']}}</h4>
+           </label>
 
-            <label >
+            {{-- <label >
               <input type="radio" name="nature" >
               <img id="mostafa"  src="{{asset("surgeryDepartement/MostafaEzzat.png")}}" alt="conference1">
               <h4 id="m">Dr Mostafa Ezzat</h4>
-            </label>
+            </label> --}}
+            @endif
+            @endforeach
             </div>
 
 
             <!-- dental -->
             <div id="dental_doc">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="Eyman"  src="{{asset("surgeryDepartement/Eyman eltantawy.jpeg")}}" alt="conference1">
-              <h4 id="ey">Dr Eyman Eltantawy</h4>
-            </label>
+              @foreach ($members as $member)
+              @if ($member['specialization'] == 'dental')
+                             
+           <label >
+             <input type="radio" name="nature" >
+             <img class="doctors"  src="{{ asset('uploads/pictures/' . $member['profile_image']) }}" alt="conference1">
+             <h4 class="ma">Dr {{$member['fname']}} {{$member['mname']}}</h4>
+           </label>
 
-            <label >
+            {{-- <label >
               <input type="radio" name="nature" >
               <img id="gamal"  src="{{asset("surgeryDepartement/Khaled Gamal.png")}}" alt="conference1">
               <h4 id="g">Dr Khaled Gamal</h4>
-            </label>
+            </label> --}}
+            @endif
+            @endforeach
             </div>
         </form>
        </div>
