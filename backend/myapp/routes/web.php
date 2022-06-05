@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,14 @@ Route::get('/patientdashboard', function () {
     return view('dashboard_patient');
 })->name('patientdashboard');
 
-
+Route::get('', function () {
+    return view('dashboard_patient');
+})->name('patientdashboard');
 
 Route::get('/admindashboard', function () {
     return view('dashboard');
 })->name('admindashboard');
-
+Route::get('/analysis',[ChartController::class,'googlePieChart']);
 
 
 

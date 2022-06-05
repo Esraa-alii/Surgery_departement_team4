@@ -18,7 +18,7 @@
     <div class="sidebar">
         <img src="{{ asset('styling/css/img/blank-profile-picture-973460_640.png') }}" alt="profile"
             id="side_profile">
-        <h2>{{ Auth::user()->fname }}</h2>
+        <h2>ali</h2>
         <p class="vertical_line"> </p>
 
         <a href="{{ route('admindashboard') }}"><i class=" icon home fa-solid fa-house"> </i>Home</a>
