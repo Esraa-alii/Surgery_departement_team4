@@ -371,11 +371,16 @@ h4{
 }
 
 .ma{
+  position: absolute;
+  width: 18%;
+  top: 90%;
+  /* position: absolute; */
+  left: -49%;
     position: absolute;
     width: 18%;
-    top: 96%;
+    top: 89%;
     /* position: absolute; */
-    left: -48%;
+    left: -49%;
 }
 
 #do{
@@ -387,14 +392,23 @@ h4{
 
 }
 .ahmed{
+  height: 23%;
+    left: 54%;
+    position: absolute;
+    top: 65%;}
+/* .a{
+  width: 17%;
+  top: 89%;
+  position: absolute;
+  left: -11%;
     height: 23%;
     left: 54%;
     position: absolute;
     top: 71%;
-}
+} */
 .a{
     width: 17%;
-    top: 95%;
+    top: 89%;
     position: absolute;
     left: -11%;
 }
@@ -421,7 +435,8 @@ h4{
 }
 
 #sam{
-    top: 95%;
+  top: 88%;
+    /* top: 95%; */
     width: 19%;
     left: -48%;
     position: absolute;
@@ -699,5 +714,29 @@ h4{
 
     #repo{
         width: auto;
-    }
-}
+      }
+  }
+/* submit button */
+  #Bnow{
+    position: relative;
+  background-color: #123355;
+  color: white;
+  width: 15%;
+  padding: 1%;
+  /* height: 30%; */
+  border-radius: 10px;
+  border-color: #123355;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-decoration: none;
+  margin-top: 3%;
+  margin-left: 43%;
+    font-size: large;
+    display: none;
+  }
+  #Bnow:hover{
+    background-color: #3b8a94;
+  border-color: #3b8a94;
+
+  }
