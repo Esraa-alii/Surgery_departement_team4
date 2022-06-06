@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Models\operation;
 use App\Http\Controllers\Select;
@@ -25,10 +26,10 @@ class ChartController extends Controller
             );
         }
        echo json_encode($output);
-       
+
     }*/
     {
-        $result = 
+        $result =
         DB::select(DB::raw("SELECT COUNT(Op_case) as Operation_Condition FROM operations GROUP BY Op_case;"));
         $data="";
         foreach($result as $val)
@@ -37,7 +38,7 @@ class ChartController extends Controller
         }
         $ChartData = $data;
 
-        $result2 = 
+        $result2 =
         DB::select(DB::raw("SELECT Role, COUNT(1) AS 'Roles' FROM users WHERE Role ='patient' or Role= 'doctor' GROUP BY Role;"));
         $data2="";
         foreach($result2 as $val)
@@ -45,7 +46,7 @@ class ChartController extends Controller
             $data2.="['".$val->Role."',     ".$val->Roles."],";
         }
         $ChartData2= $data2;
-        $result3 = 
+        $result3 =
         DB::select(DB::raw("SELECT YEAR(postoperation_appointment) as year , MONTH(postoperation_appointment) as month from operations  WHERE YEAR(postoperation_appointment)=2020 GROUP BY postoperation_appointment;
         "));
         $data3="";

@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\operation;
@@ -18,17 +19,19 @@ class OperationFactory extends Factory
     public function definition()
     {
         $startingDate = $this->faker->dateTimeThisYear('+1 month');
-         $endingDate   = strtotime('+1 Week', $startingDate->getTimestamp());    
+        $endingDate   = strtotime('+1 Week', $startingDate->getTimestamp());
         return [
             'remember_token' => Str::random(10),
-            'fees'=>$this->faker->randomNumber(),
-            'postoperation_appointment'=>$this->faker->date(),
-            'Op_room'=>$this->faker->numerify("###"),
-            'Op_type' => $this->faker->randomElement($array = array ('CardioVascular', 'Transplant','Gynecological Surgery',
-            'Colon and Rectal Surgery', 'Endocrine Surgery', 'General Surgery', 'Hand Surgery', 'Head and Neck Surgery')) ,
-            'Op_case'=>$this->faker->randomElement($array = array ('1','0')),
-            'Pssn'=>$this->faker->numerify("######"),
-            'op_code'=>$this->faker->numerify("####"),
+            'fees' => $this->faker->randomNumber(),
+            'postoperation_appointment' => $this->faker->date(),
+            'Op_room' => $this->faker->numerify("###"),
+            'Op_type' => $this->faker->randomElement($array = array(
+                'CardioVascular', 'Transplant', 'Gynecological Surgery',
+                'Colon and Rectal Surgery', 'Endocrine Surgery', 'General Surgery', 'Hand Surgery', 'Head and Neck Surgery'
+            )),
+            'Op_case' => $this->faker->randomElement($array = array('1', '0')),
+            'Pssn' => $this->faker->numerify("######"),
+            'Op_code' => $this->faker->numerify("####"),
             'enter_date' => $startingDate,
             'release_date'   => $endingDate,
             // 'enter_date'=>$this->faker->dateTimeThisYear('+1 month'),
