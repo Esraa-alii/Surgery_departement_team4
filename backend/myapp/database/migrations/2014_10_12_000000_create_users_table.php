@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('gender');
             $table->string('Role');
+            $table->string('specialization')->nullable();
             $table->integer('ssn')->unique();
             $table->string('insurance_provider')->nullable();
             $table->integer('phone_number1');

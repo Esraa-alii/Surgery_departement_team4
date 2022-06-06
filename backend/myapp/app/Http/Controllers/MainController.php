@@ -81,5 +81,10 @@ class MainController extends Controller
         return redirect('/admindoctors');
     }
 
+    function findyourdoctor(){
+        $data = User::all();
+        return view('find_doctor', ['members' => $data]);
+    }
+
 }
 

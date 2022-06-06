@@ -60,7 +60,8 @@ class RegisterController extends Controller
             'Role' => 'Patient',
             'insurance_provider' => $insurance,
             'phone_number2' => $num2,
-            'profile_image' => $filename
+            'profile_image' => $filename,
+            'specialization'=>null
 
         ]);
         auth()->login($user);

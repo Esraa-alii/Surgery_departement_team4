@@ -26,6 +26,7 @@ class AddDoctor extends Controller
             'profile_image' => 'image|mimes:jpeg,png,jpg|max:5120',
             'birth_date' => 'required|date|before:today',
             'gender' => 'required',
+            'specialization' => 'required',
             'ssn' => 'required|numeric|unique:users,ssn',
             'phone_number1' => ['required', 'regex:/^01(\d){9}$/'],
             'phone_number2' => ['regex:/^01(\d){9}$/', "nullable"],

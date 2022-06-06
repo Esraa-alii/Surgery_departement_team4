@@ -126,7 +126,7 @@ Route::get('deletedoctor/{id}', [MainController::class, 'deletedoctor']);
 
 /// sign up
 
-Route::get("register", [RegisterController::class, 'create'])->middleware('guest');
+Route::get("register", [RegisterController::class, 'create'])->name('register')->middleware('guest');
 Route::post("register", [RegisterController::class, 'store'])->middleware('guest');
 //-----------------------------------------------
 
@@ -153,7 +153,10 @@ Route::get('/signin', function () {
 Route::post("adddoctor", [AddDoctor::class, 'store']);
 
 
+
 //-----------------------------------------------
 
 
+// find your doctor
 
+Route::get('/finddoctor',[MainController::class, 'findyourdoctor'])->name('finddoctor');
