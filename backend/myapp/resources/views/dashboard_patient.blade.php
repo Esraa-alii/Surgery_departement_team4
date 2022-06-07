@@ -38,17 +38,18 @@
     <div class="container">
         <div class="row">
 
-                           
-            <div class="col d-flex">
-              <h3 class="title mb-0"> Patient Dashboard</h3>
-              <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
 
-          </div>
+            <div class="col d-flex">
+                <h3 class="title mb-0"> Patient Dashboard</h3>
+                <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}"
+                    style="width:25px; height:25px">
 
             </div>
 
-
         </div>
+
+
+    </div>
 
 
     </div>
@@ -57,7 +58,7 @@
         <img src="{{ asset('styling/css/img/gray-and-white-gradient-abstract-vector.png') }}" alt="background"
             style="width: 100%;" id="background">
 
-        {{-- @if ($appointments != null) --}}
+
         <div id="details">
             <h2> Your operation's details </h2><br>
             <p> your surgery will be on : Mon 29/5 </p>
@@ -69,7 +70,7 @@
             <a id="cancel" onclick="toggleText()" href={{ 'cancelappointment/' . Auth::user()->ssn }}>Cancel</a>
 
         </div>
-        {{-- @endif --}}
+
         <div id="no_op">
             <h2>There's no coming operation</h2>
             <button id="book" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLabel_appo">Book

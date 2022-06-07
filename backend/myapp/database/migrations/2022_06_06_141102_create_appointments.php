@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('cost')->nullable();
             $table->integer('patient_ssn');
             $table->integer('doctor_ssn');
-            $table->string('surgery_name');
+            $table->string('surgery_name')->nullable();
             $table->string('report')->nullable();
             $table->timestamps();
         });

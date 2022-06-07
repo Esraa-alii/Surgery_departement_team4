@@ -26,10 +26,10 @@
                     <form action="{{ route('appointment.updateroom', $appointment) }}" method="post">
                         @csrf
                         <td>
-                            {{ $appointment->doctor->fname }}
+                            {{ $appointment->doctor?->fname }}
                         </td>
                         <td>
-                            {{ $appointment->op_date }}
+                            {{ $appointment->op_date->toFormattedDateString() }}
 
                         </td>
                         <td>

@@ -11,6 +11,9 @@ use App\Models\User;
 use Google\Service\ServiceControl\Auth;
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Exists;
+use App\Http\Controllers\SendEmailController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,7 +113,9 @@ Route::get('/admindashboard', function () {
 
 Route::get('/admintasks', function () {
     return view('dashboard_ad_tasks', [
-        'appointments' => Appointment::where('operation_room_id', null)->get(),
+        'appointments' => Appointment::where('operation_room_id', null)->get()->filter(function ($appointment) {
+            return  $appointment->op_date != null;
+        }),
         'rooms' => OperationRoom::all()
 
     ]);
@@ -121,7 +126,14 @@ Route::get('/admindoctors', [MainController::class, 'listdoctor'])->name('admind
 
 
 Route::get('/adminappointments', function () {
-    return view('dashboard_ad_appo');
+    return view('dashboard_ad_appo', [
+
+
+        'appointments' => Appointment::all()->filter(function ($appointment) {
+            return  $appointment->op_date != null and $appointment->room != null;
+        }),
+
+    ]);
 })->name('adminappo');
 Route::post('patientSignin', [MainController::class, 'checklogin']);
 Route::get('/successlogin', [MainController::class, 'successlogin']);
@@ -194,7 +206,7 @@ Route::post('deleteappointment/{id}', [AppointmentController::class, 'delete']);
 Route::post('updateappointment/{id}', [AppointmentController::class, 'update'])->name('appointment.update');
 
 
-Route::post('updateappointment/{id}', [AppointmentController::class, 'updateRoom'])->name('appointment.updateroom');
+Route::post('updateappointmentroom/{id}', [AppointmentController::class, 'updateRoom'])->name('appointment.updateroom');
 
 Route::get('test', function () {
     $a = Appointment::first();
@@ -203,5 +215,19 @@ Route::get('test', function () {
 
 // find your doctor
 
-Route::get('/finddoctor',[MainController::class, 'findyourdoctor'])->name('finddoctor');
+Route::get('/finddoctor', [MainController::class, 'findyourdoctor'])->name('finddoctor');
 
+Route::get('send-email', [SendEmailController::class, 'index']);
+
+
+Route::get('send-mail', function () {
+
+    $details = [
+        'title' => 'Mail from Surgery department',
+        'body' => 'This is for testing email using smtp'
+    ];
+
+    Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\NotifyMail($details));
+
+    dd("Email is Sent.");
+});
