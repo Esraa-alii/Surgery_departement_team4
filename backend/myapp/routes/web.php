@@ -87,9 +87,7 @@ Route::get('/admindashboard', function () {
     return view('dashboard');
 })->name('admindashboard');
 
-Route::get('/admintasks', function () {
-    return view('dashboard_ad_tasks');
-})->name('admintasks');
+Route::get('/admintasks', [MainController::class, 'showcomplains'])->name('admintasks');
 
 Route::get('/adminpatients', [MainController::class, 'listpatient'])->name("adminpatients");
 Route::get('/admindoctors', [MainController::class, 'listdoctor'])->name('admindoctors');
@@ -160,3 +158,4 @@ Route::post("adddoctor", [AddDoctor::class, 'store']);
 // find your doctor
 
 Route::get('/finddoctor',[MainController::class, 'findyourdoctor'])->name('finddoctor');
+Route::post('complain', [MainController::class, 'addcomplain']);

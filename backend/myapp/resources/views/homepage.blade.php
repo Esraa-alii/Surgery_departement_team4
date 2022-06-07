@@ -79,7 +79,7 @@
           <li><a href="#spec"><i class="fa fa-list"></i> specialties</a></li>
           <li><a href="#media"><i class="fa fa-photo"></i> Media center</a></li>
           <li><a href="#patient"><i class="fa fa-user"></i>  Patient area </a></li>
-          <li><a href="#"><i class="fa fa-envelope"></i> contact us</a></li>
+          <li><a href="#popup"><i class="fa fa-envelope"></i> contact us</a></li>
           <div class="search-box">
             <input type="text" placeholder="Type to search..">
             <div class="search-icon">
@@ -395,7 +395,26 @@
   </div>
 
 
+  <div class="popup" id="popup">
+    <div class="popup-inner">
+      <div class="popup__photo">
+        <img src="{{asset('uploads/pictures/' .'complains.jpeg')}}" alt="">
+      </div>
+      <div class="popup__text">
 
+        <form method="post" action="complain"> 
+          @csrf     
+          <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+          <input name="email" type="text" class="feedback-input" placeholder="Email" />
+          <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+          <input id="contactbtn" type="submit" value="SUBMIT"/>
+        </form>
+
+      </div>
+      <a class="popup__close" href="#">X</a>
+    </div>
+  </div>
+</div>
 
 
 <!-- footer================================================================================== -->
@@ -434,8 +453,8 @@
              <h3>complaint<div class="underline"><div class="fill"></div></h3>
              <form>
                  <i class="far fa-envelope"></i>
-                 <input type="email" placeholder="Enter your email " required>
-                <div class="form"><button type="submit"><i class="fas fa-arrow-right"></i></button></div>
+                 <input type="email" placeholder="Enter your email " name="complaineremail" required>
+                <div class="form"><button type="submit" formaction="#popup"><i class="fas fa-arrow-right"></i></button></div>
              </form>
              <div class="social-icons">
                 <i class="fab fa-facebook-f"></i>

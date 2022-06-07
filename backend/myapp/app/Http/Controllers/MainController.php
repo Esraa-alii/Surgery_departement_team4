@@ -8,6 +8,7 @@ use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\Complain;
 
 
 class MainController extends Controller
@@ -86,5 +87,19 @@ class MainController extends Controller
         return view('find_doctor', ['members' => $data]);
     }
 
-}
+    function addcomplain(Request $req){
 
+        $complain = new Complain;
+        $complain->name = $req->name;
+        $complain->email = $req->email;
+        $complain->complain = $req->text;
+        $complain->save();
+        return redirect('/');
+
+    }
+
+    function showcomplains (){
+        $data = Complain::all();
+        return view('dashboard_ad_tasks', ['complains' => $data]);
+    }
+}

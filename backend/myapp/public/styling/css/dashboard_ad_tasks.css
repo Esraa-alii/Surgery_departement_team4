@@ -54,7 +54,21 @@ padding-right: 17px;
   justify-content: space-between;
 }
 
+#complaints{
+  top: 65%;
+}
+#donee{
+ background-color:#123355;
+ color: aliceblue;
+ width: 60%;
+ border-radius: 6px;
+ border-color: #123355;
+}
+#donee:hover{
+ background-color:rgb(14, 127, 72);
+ border-color: rgb(14, 127, 72);
 
+}
 
   
   .sidebar a:hover {

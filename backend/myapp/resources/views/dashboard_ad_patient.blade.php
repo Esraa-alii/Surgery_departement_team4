@@ -6,9 +6,7 @@
 
 @section('content')
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="add">
-        Add patient
-    </button>
+   
 
     <table class="table">
         <thead class="thead-dark">
