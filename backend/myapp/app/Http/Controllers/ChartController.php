@@ -34,7 +34,7 @@ class ChartController extends Controller
     {
         $result =
             DB::select(DB::raw("SELECT  case when op_case=1 then 'Done' else 'Not Done' end as op_case , COUNT(1) AS 'Cases' FROM appointments
-            WHERE op_case= 0 or op_case= 1   GROUP BY op_case"));
+        WHERE op_case= 0 or op_case= 1   GROUP BY op_case;"));
         $data = "";
         foreach ($result as $val) {
             $data .= "['" . $val->op_case . "',     " . $val->Cases . "],";
@@ -49,14 +49,12 @@ class ChartController extends Controller
         }
         $ChartData2 = $data2;
         $result3 =
-            DB::select(DB::raw("SELECT YEAR(op_date) as year , MONTH(op_date) as month from appointments  WHERE YEAR(op_date)=2020 GROUP BY op_date;
-        "));
+            DB::select(DB::raw("SELECT YEAR(postoperation_appointment) as year,COUNT(*) as Operations from operations  WHERE op_case=1 and YEAR(postoperation_appointment)%10=0 GROUP BY YEAR(postoperation_appointment);"));
         $data3 = "";
         foreach ($result3 as $val) {
-            $data3 .= "['" . $val->year . "',     " . $val->month . "],";
+            $data3 .= "['" . $val->year . "',     " . $val->Operations . "],";
         }
         $ChartData3 = $data3;
-
 
         return view('dashboard', ['ChartData' => $ChartData, 'ChartData2' => $ChartData2, 'ChartData3' => $ChartData3]);
         // return view('dashboard', Compact('ChartData','ChartData3'));
