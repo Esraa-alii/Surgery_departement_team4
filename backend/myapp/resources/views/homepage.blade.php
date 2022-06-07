@@ -192,7 +192,8 @@
 
     <!-- Surgical Specialties slider ======================================================-->
     <h2 id="spec" class="section-title" data-0-top="opacity:0;left:100px;" data-200-top="opacity:1;left:0px;">
-        <b>Surgical Specialties</b></h2>
+        <b>Surgical Specialties</b>
+    </h2>
     <div class="swiper mySwiper  media-scroller ">
         <div class="swiper-wrapper ">
 
@@ -409,6 +410,29 @@
 
         </div>
     </div>
+
+    <!--contact us-->
+
+
+    <div class="popup" id="popup">
+        <div class="popup-inner">
+            <div class="popup__photo">
+                <img src="../html/homeimg/slide1.jpeg" alt="">
+            </div>
+            <div class="popup__text">
+
+                <form name='myform' action="#">
+                    <input name="name" type="text" class="feedback-input" placeholder="Name" />
+                    <input name='myemail' type="text" id="display_email" class="feedback-input" placeholder="Email" />
+                    <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+                    <input id="contactbtn" type="submit" value="SUBMIT" />
+                </form>
+
+            </div>
+            <a class="popup__close" href="#">X</a>
+        </div>
+    </div>
+
 
 
 
