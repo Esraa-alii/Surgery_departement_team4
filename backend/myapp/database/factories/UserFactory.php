@@ -17,19 +17,32 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $gender = $this->faker->randomElement(['male', 'female']);
+        $role = $this->faker->randomElement(['patient', 'doctor','admin','nurse']);
+        $insurance_provider =$this->faker->randomElement(['Yes', 'No']);
         return [
-            'fname' => $this->faker->firstName(),
-            'mname' => $this->faker->firstName(),
-            'lname' => $this->faker->lastName(),
-            'ssn' => $this->faker->randomNumber(9, true),
-            'birth_date' => $this->faker->date(),
-            'gender' => $this->faker->randomElement(['Female', 'Male']),
-            'phone_number1' => $this->faker->phoneNumber(),
+
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'Role' => $this->faker->randomElement(['Doctor', 'Patient']),
             'remember_token' => Str::random(10),
+            'fname'=>$this->faker->name,
+            'mname'=>$this->faker->name,
+            'lname'=>$this->faker->name,
+            'email'=>$this->faker->email,
+            'birth_date'=>$this->faker->date,
+            // 'gender'=> $this->faker->name($gender),
+            'gender' => $this->faker->randomElement($array = array ('male', 'female')) ,
+            'Role' => $this->faker->randomElement($array = array ('patient', 'doctor','admin','nurse')) ,
+            'insurance_provider' => $this->faker->randomElement($array = array ('Yes', 'No')) ,
+            // 'insurance_provider'=> $this->faker->name($insurance_provider),
+            // 'Role'=> $this->faker->name($role),
+            'ssn'=>$this->faker->numerify("#########"),
+            'phone_number1'=>$this->faker->numerify("#########"),
+            //'phone_number2'=>$this->faker->phoneNumber(),
+            'email_verified_at'=>$this->faker->date,
+            'op_code'=>$this->faker->numerify("####"),
         ];
     }
 

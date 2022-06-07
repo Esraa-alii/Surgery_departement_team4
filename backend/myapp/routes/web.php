@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Exists;
 use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,12 +49,14 @@ Route::get('/patientdashboard', function () {
     ]);
 })->name('patientdashboard');
 
-
+Route::get('', function () {
+    return view('dashboard_patient');
+})->name('patientdashboard');
 
 Route::get('/admindashboard', function () {
     return view('dashboard');
 })->name('admindashboard');
-
+Route::get('/analysis', [ChartController::class, 'googlePieChart']);
 
 
 
