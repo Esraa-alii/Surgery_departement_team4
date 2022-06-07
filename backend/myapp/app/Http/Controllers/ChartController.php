@@ -29,14 +29,15 @@ class ChartController extends Controller
     }*/
     {
         $result = 
-        DB::select(DB::raw("SELECT COUNT(Op_case) as Operation_Condition FROM operations GROUP BY Op_case;"));
+        DB::select(DB::raw("SELECT  case when Op_case=1 then 'Done' else 'Not Done' end as Op_case , COUNT(1) AS 'Cases' FROM operations
+        WHERE Op_case= 0 or Op_case= 1   GROUP BY Op_case;"));
         $data="";
         foreach($result as $val)
         {
-            $data.="['".$val->Operation_Condition."',     ".$val->Operation_Condition."],";
+            $data.="['".$val->Op_case."',     ".$val->Cases."],";
         }
         $ChartData = $data;
-
+        error_log($ChartData);
         $result2 = 
         DB::select(DB::raw("SELECT Role, COUNT(1) AS 'Roles' FROM users WHERE Role ='patient' or Role= 'doctor' GROUP BY Role;"));
         $data2="";
@@ -46,12 +47,11 @@ class ChartController extends Controller
         }
         $ChartData2= $data2;
         $result3 = 
-        DB::select(DB::raw("SELECT YEAR(postoperation_appointment) as year , MONTH(postoperation_appointment) as month from operations  WHERE YEAR(postoperation_appointment)=2020 GROUP BY postoperation_appointment;
-        "));
+        DB::select(DB::raw("SELECT YEAR(postoperation_appointment) as year,COUNT(*) as Operations from operations  WHERE Op_case=1 and YEAR(postoperation_appointment)%10=0 GROUP BY YEAR(postoperation_appointment);"));
         $data3="";
         foreach($result3 as $val)
         {
-            $data3.="['".$val->year."',     ".$val->month."],";
+            $data3.="['".$val->year."',     ".$val->Operations."],";
         }
         $ChartData3 = $data3;
 

@@ -102,7 +102,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
-
     <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <title>Document</title>
@@ -124,7 +123,7 @@
           ?> 
         ]);
         var options = {
-          title: 'Company Performance',
+          title: 'Hospital Performance',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -133,15 +132,14 @@
       }
 
       function drawChart() {
-
         var data = google.visualization.arrayToDataTable([
           ['Done', 'Not Done'],
           <?php echo $ChartData
           ?> 
         ]);
-
         var options = {
           title: 'Tasks'
+          
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -162,7 +160,7 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
 
         chart.draw(data, options);
-        }
+      }
     
     
     
@@ -170,25 +168,25 @@
     </script>
   </head>
   <body>
-  <div class="sidebar">
-        <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
-        <h2 >Admin Name</h2>
-        <p class="vertical_line"> </p>
+    <div class="sidebar">
+          <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
+          <h2 >Admin Name</h2>
+          <p class="vertical_line"> </p>
 
-        <a href="../html/dashboard.html"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
-        
+          <a href="../html/dashboard.html"><i class=" icon home fa-solid fa-house" > </i>Home</a> 
+          
 
-        <a href="../html/dashboard_ad_tasks.html"><i class=" icon fa-solid fa-list-check"></i> 
-                Tasks </a>
-                <a href="../html/dashboard_ad_appo.html"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
-                <p class="vertical_line"> </p>
+          <a href="../html/dashboard_ad_tasks.html"><i class=" icon fa-solid fa-list-check"></i> 
+                  Tasks </a>
+                  <a href="../html/dashboard_ad_appo.html"><i class="icon fa-solid fa-calendar-check"></i> Appointments</a>
+                  <p class="vertical_line"> </p>
 
-                <a href="../html/dashboard_ad_doctors.html"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
-        <a href="../html/dashboard_ad_patient.html"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
-        <p class="vertical_line"> </p>
+                  <a href="../html/dashboard_ad_doctors.html"> <i class="icon fa-solid fa-user-doctor"></i> Doctors</a>
+          <a href="../html/dashboard_ad_patient.html"><i class="icon fa-solid fa-bed-pulse"></i> patient</a>
+          <p class="vertical_line"> </p>
 
-        <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
-      </div>
+          <a href="#"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+    </div>
       <div class="container">
           <div class="row">
             <div class="col">
@@ -200,7 +198,7 @@
     <div class="contentt"> 
       <div id="piechart" ></div>
       <div id="piechart2"></div>
-      <div id="barchart_material"></div>
+      <div id="barchart_material"style="width: 900px; height: 500px;"></div>
     </div>
 
   </body>
