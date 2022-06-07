@@ -154,13 +154,15 @@ padding-right: 17px;
 
  }
  #piechart{
-   width: 30%;
+   height: 40%;
+   width: 40%;
    position: absolute;
    left: 10%;
    top: 5%;
  }
  #piechart2{
-  width: 30%;
+  height: 40%;
+   width: 40%;
   position: absolute;
   top: 5%;
   right: 10%;
