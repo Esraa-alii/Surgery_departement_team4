@@ -1,150 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
 
-    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/dashboard_patient.css">
-    
-    <title>surgery Departement</title>
-    <link rel="shortcut icon" href="../surgeryDepartement/icon.ico">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../fontawesome-free-6.0.0-web/css/all.css">
+
+  <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/dashboard_patient.css">
+
+  <title>surgery Departement</title>
+  <link rel="shortcut icon" href="../surgeryDepartement/icon.ico">
 
 </head>
+
 <body>
-    <div class="sidebar">
-        <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
-        <h2 >Patient Name</h2>
-        <p class="vertical_line"> </p>
+  <div class="sidebar">
+    <img src="../css/img/blank-profile-picture-973460_640.png" alt="profile" id="side_profile">
+    <h2>Patient Name</h2>
+    <p class="vertical_line"> </p>
 
 
 
-        <a href="#" id="log"><i class=" icon  fa-solid fa-right-from-bracket" ></i> Log out</a>
+    <a href="#" id="log"><i class=" icon  fa-solid fa-right-from-bracket"></i> Log out</a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="title"> Patient Dashboard</h5>
       </div>
-      <div class="container">
-          <div class="row">
-            <div class="col">
-            <h3 class="title"> Patient Dashboard</h5>
-            </div>
 
 
-   </div>
-
-
-</div>
-</div>
- <div class="contentt">
-  <div id="details">
-    <h2> Your operation's details </h2><br>
-    <p> your surgery will be on : Mon 29/5 </p>
-    <p> Please attend in the hospital at : 2:00 PM </p>
-    <p> Fees :300 LE </p>
-    <p> Room number : op123</p>
-
-
-    <button id="cancle" onclick="toggleText()">Cancel</button>
-
-  </div>
-
-  <div id="no_op">
-    <h2>There's no comming operation</h2>
-    <button id="book" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLabel_appo">Book Appointment</button>
-
-    <!-- <a href="#" id="book">Book Appointment</a> -->
-  </div>
-  <div id="report">
-    <h2>After Operation details</h2>
-    <p> your preoperation medication will be on : Sun 2/6 </p>
-    <p> Please attend in the hospital at : 5:00 PM </p>
-    <button id="view" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">view report</button>
     </div>
 
- </div>
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-     <div class="modal-content" >
-       <div class="modal-header">
-         <h3 class="modal-title" id="exampleModalLabel" style="margin:0;">your report </h3>
-       </div>
-       <div class="modal-body">
-        <img src="../css/img/006806688_1-177263f48504b0f4b5793f80cc5b65fe-768x994.png" alt="report" id="repo">
 
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-       </div>
-     </div>
-   </div>
- </div>
+  </div>
+  </div>
+  <div class="contentt">
+    <div id="details">
+      <h2> Your operation's details </h2><br>
+      <p> your surgery will be on : Mon 29/5 </p>
+      <p> Please attend in the hospital at : 2:00 PM </p>
+      <p> Fees :300 LE </p>
+      <p> Room number : op123</p>
 
- <!-- modal popup for appointement -->
- <div class="modal fade" id="exampleModalLabel_appo" tabindex="-1" aria-labelledby="exampleModalLabel_appo" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-     <div class="modal-content" >
-       <div class="modal-header">
-         <h3 class="modal-title" id="exampleModalLabel_appo" style="margin:0;">Book appointement </h3>
-       </div>
-       <div class="modal-body">
-        <form>
-          <h3 class="app_title"> Choose your Surgical Specialties</h3>
-         
-                <label>
-                  <input type="radio" name="nature">
-                  <img class="Specialties" id="cardio" onclick="showcardio()" src="../surgeryDepartement/cardio.jpeg" alt="cardio">
-                  <h4>cardiothoracic</h4>
-                </label>
-              
-                <label  >
-                  <input type="radio" name="nature" >
-                  <img class="Specialties" onclick="showurology()" src="../surgeryDepartement/urology.jpg" alt="conference1">
-                  <h4>urology</h4>
-                </label>
-              
 
-      
-                <label>
-                  <input type="radio" name="nature" >
-                  <img class="Specialties" onclick="neuroshow()" src="../surgeryDepartement/neurology.jpg" alt="conference1">
-                  <h4>neurological</h4>
-                </label>
+      <button id="cancle" onclick="toggleText()">Cancel</button>
 
-                <br>
-             
-            
-                <label>
-                  <input type="radio" name="nature" >
-                  <img class="Specialties" onclick="showOrthopaedic_doc()"src="../surgeryDepartement/orth2.jpeg" id="orth" alt="conference1">
-                  <h4 id="or" >Orthopaedic</h4>
-                </label>
-                <label >
-                  <input type="radio" name="nature" >
-                  <img class="Specialties" onclick="dentalshow()" id="dental" src="../surgeryDepartement/dental.jpeg" alt="conference1">
-                  <h4 id="dent">dental</h4>
-                </label>
-                <label >
-                  <input type="radio" name="nature" >
-                  <img class="Specialties" onclick="showObstetrics()" id="Obstetrics" src="../surgeryDepartement/Obstetrics.jpeg" alt="conference1">
-                  <h4 id="obs">Obstetrics</h4>
-                </label>
-                  <!-- <button type="submit" id="Select"> Select </button>
+    </div>
+
+    <div id="no_op">
+      <h2>There's no comming operation</h2>
+      <button id="book" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalLabel_appo">Book
+        Appointment</button>
+
+      <!-- <a href="#" id="book">Book Appointment</a> -->
+    </div>
+    <div id="report">
+      <h2>After Operation details</h2>
+      <p> your preoperation medication will be on : Sun 2/6 </p>
+      <p> Please attend in the hospital at : 5:00 PM </p>
+      <button id="view" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">view report</button>
+    </div>
+
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel" style="margin:0;">your report </h3>
+        </div>
+        <div class="modal-body">
+          <img src="../css/img/006806688_1-177263f48504b0f4b5793f80cc5b65fe-768x994.png" alt="report" id="repo">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal popup for appointement -->
+  <div class="modal fade" id="exampleModalLabel_appo" tabindex="-1" aria-labelledby="exampleModalLabel_appo"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel_appo" style="margin:0;">Book appointement </h3>
+        </div>
+        <div class="modal-body">
+          <form>
+            <h3 class="app_title"> Choose your Surgical Specialties</h3>
+
+            <label>
+              <input type="radio" name="nature">
+              <img class="Specialties" id="cardio" onclick="showcardio()" src="../surgeryDepartement/cardio.jpeg"
+                alt="cardio">
+              <h4>cardiothoracic</h4>
+            </label>
+
+            <label>
+              <input type="radio" name="nature">
+              <img class="Specialties" onclick="showurology()" src="../surgeryDepartement/urology.jpg"
+                alt="conference1">
+              <h4>urology</h4>
+            </label>
+
+
+
+            <label>
+              <input type="radio" name="nature">
+              <img class="Specialties" onclick="neuroshow()" src="../surgeryDepartement/neurology.jpg"
+                alt="conference1">
+              <h4>neurological</h4>
+            </label>
+
+            <br>
+
+
+            <label>
+              <input type="radio" name="nature">
+              <img class="Specialties" onclick="showOrthopaedic_doc()" src="../surgeryDepartement/orth2.jpeg" id="orth"
+                alt="conference1">
+              <h4 id="or">Orthopaedic</h4>
+            </label>
+            <label>
+              <input type="radio" name="nature">
+              <img class="Specialties" onclick="dentalshow()" id="dental" src="../surgeryDepartement/dental.jpeg"
+                alt="conference1">
+              <h4 id="dent">dental</h4>
+            </label>
+            <label>
+              <input type="radio" name="nature">
+              <img class="Specialties" onclick="showObstetrics()" id="Obstetrics"
+                src="../surgeryDepartement/Obstetrics.jpeg" alt="conference1">
+              <h4 id="obs">Obstetrics</h4>
+            </label>
+            <!-- <button type="submit" id="Select"> Select </button>
         </form> -->
             <!-- Doctors -->
             <br>
             <hr>
-        <!-- <form > -->
-          <h3 class="app_title" id="do"> Choose your Doctor</h3>
+            <!-- <form > -->
+            <h3 class="app_title" id="do"> Choose your Doctor</h3>
 
             <!-- cardio doc -->
             <div id="cardio_doc">
-              <label >
-                <input type="radio" name="nature" >
-                <img class="doctors"  src="../surgeryDepartement/magdy_y.jpeg" alt="conference1">
+              <label>
+                <input type="radio" name="nature">
+                <img class="doctors" src="../surgeryDepartement/magdy_y.jpeg" alt="conference1">
                 <h4 class="ma">Dr Magdy Yacoub</h4>
               </label>
-              <label >
-                <input type="radio" name="nature" >
+              <label>
+                <input type="radio" name="nature">
                 <img class="ahmed" src="../surgeryDepartement/ahmed helmy.jpeg" alt="conference1">
                 <h4 class="a">Dr Ahmed helmy</h4>
               </label>
@@ -153,85 +163,86 @@
 
             <!-- urology doc -->
             <div id="urology_doc">
-              <label >
-                <input type="radio" name="nature" >
-                <img class="abdel"  src="../surgeryDepartement/abdelnasser.jpeg" alt="conference1">
+              <label>
+                <input type="radio" name="nature">
+                <img class="abdel" src="../surgeryDepartement/abdelnasser.jpeg" alt="conference1">
                 <h4 class="abd">Dr Abd Elnassser</h4>
               </label>
             </div>
 
 
-             <!-- Obstetrics doc -->
-             <div id="Obstetrics_docs">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="samya"  src="../surgeryDepartement/samya.jpeg" alt="conference1">
-              <h4 id="sam">Dr Samya Mohamed</h4>
-            </label>
+            <!-- Obstetrics doc -->
+            <div id="Obstetrics_docs">
+              <label>
+                <input type="radio" name="nature">
+                <img id="samya" src="../surgeryDepartement/samya.jpeg" alt="conference1">
+                <h4 id="sam">Dr Samya Mohamed</h4>
+              </label>
 
-            <label >
-              <input type="radio" name="nature" >
-              <img id="aida"  src="../surgeryDepartement/Dr.Aida_.jpg" alt="conference1">
-              <h4 id="ad">Dr Aida </h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="aida" src="../surgeryDepartement/Dr.Aida_.jpg" alt="conference1">
+                <h4 id="ad">Dr Aida </h4>
+              </label>
             </div>
 
             <!-- neurological doc -->
             <div id="neurological_docs">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="nabeel"  src="../surgeryDepartement/dr.-Mohammed-Nabeel-scaled.jpg" alt="conference1">
-              <h4 id="n">Dr Mohammed Nabeel</h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="nabeel" src="../surgeryDepartement/dr.-Mohammed-Nabeel-scaled.jpg" alt="conference1">
+                <h4 id="n">Dr Mohammed Nabeel</h4>
+              </label>
 
-            <label >
-              <input type="radio" name="nature" >
-              <img id="wael"  src="../surgeryDepartement/wael mahmoud.jpeg" alt="conference1">
-              <h4 id="w">Dr Wael Mahmoud</h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="wael" src="../surgeryDepartement/wael mahmoud.jpeg" alt="conference1">
+                <h4 id="w">Dr Wael Mahmoud</h4>
+              </label>
             </div>
 
             <!-- Orthopaedic doc -->
             <div id="Orthopaedic_doc">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="tayb"  src="../surgeryDepartement/ahmedeltayeb.png" alt="conference1">
-              <h4 id="t">Dr Ahmed Eltaib</h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="tayb" src="../surgeryDepartement/ahmedeltayeb.png" alt="conference1">
+                <h4 id="t">Dr Ahmed Eltaib</h4>
+              </label>
 
-            <label >
-              <input type="radio" name="nature" >
-              <img id="mostafa"  src="../surgeryDepartement/MostafaEzzat.png" alt="conference1">
-              <h4 id="m">Dr Mostafa Ezzat</h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="mostafa" src="../surgeryDepartement/MostafaEzzat.png" alt="conference1">
+                <h4 id="m">Dr Mostafa Ezzat</h4>
+              </label>
             </div>
 
 
             <!-- dental -->
             <div id="dental_doc">
-              <label >
-              <input type="radio" name="nature" >
-              <img id="Eyman"  src="../surgeryDepartement/Eyman eltantawy.jpeg" alt="conference1">
-              <h4 id="ey">Dr Eyman Eltantawy</h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="Eyman" src="../surgeryDepartement/Eyman eltantawy.jpeg" alt="conference1">
+                <h4 id="ey">Dr Eyman Eltantawy</h4>
+              </label>
 
-            <label >
-              <input type="radio" name="nature" >
-              <img id="gamal"  src="../surgeryDepartement/Khaled Gamal.png" alt="conference1">
-              <h4 id="g">Dr Khaled Gamal</h4>
-            </label>
+              <label>
+                <input type="radio" name="nature">
+                <img id="gamal" src="../surgeryDepartement/Khaled Gamal.png" alt="conference1">
+                <h4 id="g">Dr Khaled Gamal</h4>
+              </label>
             </div>
-        </form>
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-       </div>
-     </div>
-   </div>
- </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
- <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../bootstrap/bootstrap.bundle.min.js"></script>
 
- <script src="../Java Script/dashboard_patient.js"></script>
+  <script src="../Java Script/dashboard_patient.js"></script>
 </body>
+
 </html>

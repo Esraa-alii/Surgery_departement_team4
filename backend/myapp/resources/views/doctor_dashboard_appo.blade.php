@@ -5,21 +5,19 @@
 @endsection
 
 @section('content')
-    <div class="details" id="d1">
-        <h2> Patient name operation's details </h2><br>
-        <p> surgery will be on : sun 28/5 </p>
-        <p> surgery will be at : 9:00 AM </p>
-        <p> Fees :4900 LE </p>
-        <p> Room number : op126</p>
-        <button id="cancle" onclick="toggleText()">Cancel</button>
-    </div>
-    <div class="details" id="d2">
-        <h2> Patient name operation's details </h2><br>
-        <p> surgery will be on : sun 28/5 </p>
-        <p> surgery will be at : 9:00 AM </p>
-        <p> Fees :4900 LE </p>
-        <p> Room number : op126</p>
-        <button id="cancle" onclick="toggleText()">Cancel</button>
+    {{-- {{ ddd($appointments) }} --}}
+    @foreach ($appointments as $appointment)
+        <div class="card m-auto my-4 p-5 rounded-3 w-75">
+            <h2> {{ $appointment->patient->fname }} operation's details </h2><br>
+            <p> surgery will be on : {{ $appointment->op_date->toFormattedDateString() }} </p>
+            <p> Fees : {{ $appointment->cost }} LE </p>
+            <p> Room number : {{ $appointment->room ? $appointment->room->name : 'Not yet decided' }}</p>
+            <form class="m-auto" action="{{ url('deleteappointment/' . $appointment->id) }}" method="post">
+                @csrf
+                <button type="submit" class="cstm-btn px-5 py-1">Cancel</button>
+            </form>
+        </div>
+    @endforeach
     </div>
 @endsection
 

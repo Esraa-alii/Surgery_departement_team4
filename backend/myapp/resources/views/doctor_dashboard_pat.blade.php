@@ -24,19 +24,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr id="Myid">
-                <th scope="row">1</th>
-                <td>Esraa</td>
-                <td>Ali</td>
-                <td>11</td>
-                <td>sjks@patient.com</td>
-                <td>Surgery1</td>
-                <td>012983</td>
-                <td>female</td>
-                <td><button id="delete" onclick="toggleText()">Delete</button></td>
+            @foreach ($appointments as $appointment)
+                <tr id="Myid">
+                    <th scope="row">1</th>
+                    <td>{{ $appointment->patient->fname }}</td>
+                    <td>{{ $appointment->patient->lname }}</td>
+                    <td>{{ $appointment->patient->ssn }}</td>
+                    <td>{{ $appointment->patient->email }}</td>
+                    <td>{{ $appointment->surgery_name }}</td>
+                    <td>{{ $appointment->patient->phone_number1 }}</td>
+                    <td>{{ $appointment->patient->gender }}</td>
+                    <form class="m-auto" action="{{ url('deleteappointment/' . $appointment->id) }}" method="post">
+                        @csrf
+                        <td><button type="submit" class="cstm-btn px-5 py-1">Delete</button></td>
+                    </form>
 
 
-            </tr>
+
+                </tr>
+            @endforeach
 
         </tbody>
     </table>

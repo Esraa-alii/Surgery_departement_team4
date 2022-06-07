@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('specialization')->nullable();
             $table->integer('ssn')->unique();
             $table->string('insurance_provider')->nullable();
-            $table->integer('phone_number1');
-            $table->integer('phone_number2')->nullable();
+            $table->string('phone_number1');
+            $table->string('phone_number2')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

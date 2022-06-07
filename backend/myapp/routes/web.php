@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AddDoctor;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Models\Appointment;
+use App\Models\OperationRoom;
+use App\Models\User;
+use Google\Service\ServiceControl\Auth;
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Support\Facades\Hash;
 
@@ -34,7 +39,10 @@ Route::get('/', function () {
 //////Patient dashboard
 
 Route::get('/patientdashboard', function () {
-    return view('dashboard_patient');
+    return view('dashboard_patient', [
+        'members' => User::where('Role', 'Doctor')->get(),
+        'appointments' => Appointment::where('patient_ssn', auth()->user()->ssn)->get()->first()
+    ]);
 })->name('patientdashboard');
 
 
@@ -60,15 +68,28 @@ Route::get('/admindashboard', function () {
 // })->name('doctortasks');
 
 Route::get('/doctorappointments', function () {
-    return view('doctor_dashboard_appo');
+    return view('doctor_dashboard_appo', [
+        'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+            return $appointment->cost != null and $appointment->surgery_name != null and $appointment->op_date != null;
+        })
+    ]);
 })->name('doctorappo');
 
 Route::get('/doctortasks', function () {
-    return view('doctor_dashboard_tasks');
+    return view('doctor_dashboard_tasks', [
+        'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+            return $appointment->cost == null or $appointment->surgery_name == null or $appointment->op_date == null;
+        })
+    ]);
 })->name('doctortasks');
 
 Route::get('/doctorpatients', function () {
-    return view('doctor_dashboard_pat');
+    return view('doctor_dashboard_pat', [
+        'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+            return $appointment->cost != null or $appointment->surgery_name != null or $appointment->op_date != null or $appointment->room != null;
+        })
+
+    ]);
 })->name('doctorpatients');
 //-----------------------------------------------
 
@@ -88,7 +109,11 @@ Route::get('/admindashboard', function () {
 })->name('admindashboard');
 
 Route::get('/admintasks', function () {
-    return view('dashboard_ad_tasks');
+    return view('dashboard_ad_tasks', [
+        'appointments' => Appointment::where('operation_room_id', null)->get(),
+        'rooms' => OperationRoom::all()
+
+    ]);
 })->name('admintasks');
 
 Route::get('/adminpatients', [MainController::class, 'listpatient'])->name("adminpatients");
@@ -155,5 +180,22 @@ Route::post("adddoctor", [AddDoctor::class, 'store']);
 
 //-----------------------------------------------
 
+// add apointment
+
+Route::post("addappointment", [AppointmentController::class, 'store']);
+
+// delete appointments
+
+Route::get('cancelappointment/{patient_ssn}', [AppointmentController::class, 'destroy']);
+
+Route::post('deleteappointment/{id}', [AppointmentController::class, 'delete']);
+
+Route::post('updateappointment/{id}', [AppointmentController::class, 'update'])->name('appointment.update');
 
 
+Route::post('updateappointment/{id}', [AppointmentController::class, 'updateRoom'])->name('appointment.updateroom');
+
+Route::get('test', function () {
+    $a = Appointment::first();
+    ddd($a->room);
+});
