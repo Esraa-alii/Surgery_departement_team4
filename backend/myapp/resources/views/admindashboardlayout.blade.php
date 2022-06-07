@@ -50,13 +50,15 @@
 
             <div class="col d-flex">
                 <h3 class="title mb-0"> Admin Dashboard</h3>
-                <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
+                <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}"
+                    style="width:25px; height:25px">
 
             </div>
         </div>
     </div>
     <div class="contentt">
-        <img src="{{asset("styling/css/img/gray-and-white-gradient-abstract-vector.png")}}" alt="background" id="background">
+        <img src="{{ asset('styling/css/img/gray-and-white-gradient-abstract-vector.png') }}" alt="background"
+            id="background">
         {{-- TODO --}}
         @if (session()->has('success'))
             <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show='show' class="alert alert-success">

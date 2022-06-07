@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('med_after_sur')->nullable();
             $table->string('fees');
             $table->string('postoperation_appointment');
-            $table->string('Op_code')->unique();
+            $table->string('Op_code');
             $table->string('Op_room');
             $table->integer('Op_case');
             $table->integer('Pssn')->unique();

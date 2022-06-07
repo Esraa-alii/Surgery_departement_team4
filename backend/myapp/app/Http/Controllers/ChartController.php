@@ -1,27 +1,30 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Models\operation;
 use App\Http\Controllers\Select;
+use Google\Service\ServiceControl\Auth;
 use Google\Service\Sheets\ChartData;
 use \Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
     public function googlePieChart()
-   /* {
+    /* {
         $data = DB::table('operations')
            ->select(
-            DB::raw('Op_case as Op_case'),
+            DB::raw('op_case as op_case'),
             DB::raw('count(*) as number'))
-           ->groupBy('Op_case')
+           ->groupBy('op_case')
            ->get();
-        $array[] = ['Op_case', 'number'];
+        $array[] = ['op_case', 'number'];
         foreach($data ->toArray() as $row)
         {
             $output[]=array(
-                'Op_case'=>$row['Op_case'],
+                'op_case'=>$row['op_case'],
                 'number'=>$row['number']
             );
         }
@@ -30,33 +33,32 @@ class ChartController extends Controller
     }*/
     {
         $result =
-        DB::select(DB::raw("SELECT COUNT(Op_case) as Operation_Condition FROM operations GROUP BY Op_case;"));
-        $data="";
-        foreach($result as $val)
-        {
-            $data.="['".$val->Operation_Condition."',     ".$val->Operation_Condition."],";
+            DB::select(DB::raw("SELECT  case when op_case=1 then 'Done' else 'Not Done' end as op_case , COUNT(1) AS 'Cases' FROM appointments
+            WHERE op_case= 0 or op_case= 1   GROUP BY op_case"));
+        $data = "";
+        foreach ($result as $val) {
+            $data .= "['" . $val->op_case . "',     " . $val->Cases . "],";
         }
         $ChartData = $data;
 
         $result2 =
-        DB::select(DB::raw("SELECT Role, COUNT(1) AS 'Roles' FROM users WHERE Role ='patient' or Role= 'doctor' GROUP BY Role;"));
-        $data2="";
-        foreach($result2 as $val)
-        {
-            $data2.="['".$val->Role."',     ".$val->Roles."],";
+            DB::select(DB::raw("SELECT Role, COUNT(1) AS 'Roles' FROM users WHERE Role ='Patient' or Role= 'Doctor' GROUP BY Role;"));
+        $data2 = "";
+        foreach ($result2 as $val) {
+            $data2 .= "['" . $val->Role . "',     " . $val->Roles . "],";
         }
-        $ChartData2= $data2;
+        $ChartData2 = $data2;
         $result3 =
-        DB::select(DB::raw("SELECT YEAR(postoperation_appointment) as year , MONTH(postoperation_appointment) as month from operations  WHERE YEAR(postoperation_appointment)=2020 GROUP BY postoperation_appointment;
+            DB::select(DB::raw("SELECT YEAR(op_date) as year , MONTH(op_date) as month from appointments  WHERE YEAR(op_date)=2020 GROUP BY op_date;
         "));
-        $data3="";
-        foreach($result3 as $val)
-        {
-            $data3.="['".$val->year."',     ".$val->month."],";
+        $data3 = "";
+        foreach ($result3 as $val) {
+            $data3 .= "['" . $val->year . "',     " . $val->month . "],";
         }
         $ChartData3 = $data3;
 
-        return view('dashboard',['ChartData'=> $ChartData,'ChartData2'=>$ChartData2,'ChartData3'=>$ChartData3]);
+
+        return view('dashboard', ['ChartData' => $ChartData, 'ChartData2' => $ChartData2, 'ChartData3' => $ChartData3]);
         // return view('dashboard', Compact('ChartData','ChartData3'));
     }
 }

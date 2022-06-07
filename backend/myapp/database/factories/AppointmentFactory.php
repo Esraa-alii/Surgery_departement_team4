@@ -22,6 +22,7 @@ class AppointmentFactory extends Factory
             'op_date' => $this->faker->optional()->date(),
             'operation_room_id' => null,
             // 'operation_room_id' => OperationRoom::all()->random()->id,
+            'Op_case' => $this->faker->randomElement($array = array('1', '0')),
             'cost' => $this->faker->optional()->numberBetween(1200, 7000),
             'patient_ssn' => User::whereRole('Patient')->get()->random()->ssn,
             'doctor_ssn' => User::whereRole('Doctor')->get()->random()->ssn,
