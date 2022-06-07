@@ -11,11 +11,13 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @yield('css')
 
-    <title>Document</title>
+    <title>Surgery Departement</title>
+    <link rel="shortcut icon" src="{{ asset('surgeryDepartment/icon.ico') }}">
 </head>
 
 <body>
     <div class="sidebar">
+
 
         @if (Auth::user()->profile_image == null)
             <img src="{{ asset('styling\css\img\blank-profile-picture-973460_640.png') }}" width="70px" height="180px"
@@ -26,6 +28,7 @@
         @endif
 
         <h2>{{ Auth::user()->fname }} {{ Auth::user()->mname }}</h2>
+
         <p class="vertical_line"> </p>
 
 
@@ -48,13 +51,15 @@
 
             <div class="col d-flex">
                 <h3 class="title mb-0"> Admin Dashboard</h3>
-                <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
+                {{-- <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}" --}}
+                style="width:25px; height:25px">
 
             </div>
         </div>
     </div>
     <div class="contentt">
-        <img src="{{asset("styling/css/img/gray-and-white-gradient-abstract-vector.png")}}" alt="background" id="background">
+        <img src="{{ asset('styling/css/img/gray-and-white-gradient-abstract-vector.png') }}" alt="background"
+            id="background">
         {{-- TODO --}}
         @if (session()->has('success'))
             <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show='show' class="alert alert-success">

@@ -1,4 +1,4 @@
-var chart = new CanvasJS.Chart("tasks", {
+/*var chart = new CanvasJS.Chart("tasks", {
 	animationEnabled: true,
 	title: {
 		text: "Tasks"
@@ -9,8 +9,8 @@ var chart = new CanvasJS.Chart("tasks", {
 		yValueFormatString: "##0.00\"%\"",
 		indexLabel: "{label} {y}",
 		dataPoints: [
-			{y: 40, label: "Done"},
-			{y: 60, label: "Not Done"},
+			{y: Op_case, label: "Done"},
+			{y: number, label: "Not Done"},
 			// {y: 7.06, label: "Baidu"},
 			// {y: 4.91, label: "Yahoo"},
 			// {y: 1.26, label: "Others"}
@@ -77,3 +77,4 @@ window.onload = function () {
 	chart.render();
 
 	}
+*/

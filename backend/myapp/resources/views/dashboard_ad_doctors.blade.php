@@ -70,20 +70,21 @@
                         <label for="birthdate">Birth date:</label> <br>
                         <input type="date" id="birth_date" name="birth_date" required><br>
 
-                                                {{-- specialization --}}
-                         <label for="special">specialization:</label>
-                       <br>
-                       <select name="specialization" value="{{ old('specialization') }}" id="specialization">
-                        
-                         <option value="urology">urology</option>
-                         <option value="neurological">neurological</option>
-                         <option value="cardiothoracic">cardiothoracic</option>
-                         <option value="dental">dental</option>
-                         <option value="orthopaedic">orthopaedic</option>
-                         <option value="Obstetrics">Obstetrics</option>
-                        
-                         </select>
-                         <br>
+                        {{-- specialization --}}
+                        <label for="special">specialization:</label>
+                        <br>
+                        <select name="specialization" value="{{ old('specialization') }}" id="specialization">
+
+                            <option value="urology">urology</option>
+                            <option value="neurological">neurological</option>
+                            <option value="cardiothoracic">cardiothoracic</option>
+                            <option value="dental">dental</option>
+                            <option value="orthopaedic">orthopaedic</option>
+                            <option value="Obstetrics">Obstetrics</option>
+
+                        </select>
+                        <br>
+
                         <!-- gener part -->
                         <label for="gender">Gender:</label><br>
                         <select name="gender" id="gender" required>
