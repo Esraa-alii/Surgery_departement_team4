@@ -1,0 +1,239 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%
+  font-size: 15px;
+  background-color: #dfe3e5  !important;
+  letter-spacing: 3px;
+}
+
+/* title bar */
+.title-bar {
+  background-color: #2C3E50;
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+  padding: 5px;
+  /* color for top bar */
+  width: 100%
+  text-align: center;
+  height:12%;
+  margin-bottom: 2%;
+}
+.title-bar p{
+  color:white;
+}
+
+.middle-cont {
+  width:50%;
+  margin: auto;
+  background-color: #dfe3e5;
+
+}
+
+/* form stuff */
+input[type=text], input[type=email], input[type=password], input[type=tel],
+input[type=number], input[type=date],select {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus,input[type=email]:focus,input[type=tel]:focus, input[type=password]:focus,
+input[type=number]:focus, input[type=date]:focus, select:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  width: 75%;
+  border-bottom: 5px solid #2C3E50;
+  display:flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #2C3E50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-color: #2C3E50;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+
+.clearfix {
+  display:flex;
+  justify-content: center;
+  text-align: center
+  align-items: center;
+}
+/* log in button */
+.signinbtn {
+  width: 50%;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+/* sign up btn */
+.signupbtn {
+  width: 50%;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signin button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signinbtn {
+    width: 100%;
+  }
+}
+.content{
+    /* background-color: #bcc9d6; */
+        /* background-color: #9ca8b5; */
+background-color: white;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 30px;
+    /* border: solid 2px black; */
+}
+.left{
+    border-radius: 30px;
+    height: 100%;
+    position: absolute;
+    width: 55%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+#image{
+    z-index: 2;
+}
+#color{
+    background-color:#1f3a55 ;
+    opacity: 0.5;
+    z-index: 3;
+}
+#quote{
+  z-index: 3;
+  color: white;
+  font-size: 60px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: absolute;
+  padding-left: 40px;
+  bottom: 10%;
+  font-family: 'Century Gothic';
+}
+#life{
+  position: absolute;
+  color: #423558;
+  left: 24%;
+  top: 87%;
+}
+.right{
+  width: 35%;
+  height: 80%;
+  position: absolute;
+  right:45px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 10%;
+  color: #1f3a55;
+  padding-left: 5%;
+  font-size: large;
+  font-family: 'Century Gothic';
+
+}
+@media screen and (max-width: 400px) {
+    #image{
+    display: none;
+    }
+    #content{
+      width: 90%;
+      left: 5%;
+        }
+        .right{
+            padding: auto;
+
+
+          width: 100%;
+        }
+        #life{
+            top: auto;
+            left: auto;
+        }
+        .left{
+            display: none;
+
+           }
+           #quote{
+            display: none;
+           }
+}
+
+@media screen and (max-width: 700px) {
+    #image{
+    display: none;
+    }
+    #conten{
+  width: 90%;
+  left: 5%;
+    }
+    .right{
+        left: 12%;
+        top: 5%;
+        /* right: auto; */
+        width: 80%;
+        height: 85%;
+        padding: 0px;
+    }
+   #life{
+       display: none;
+
+   }
+   .left{
+    display: none;
+
+   }
+   #quote{
+    display: none;
+   }
+
+  }
+
+/* side bar background #2C3E50\
+side bar vertical line #8dd6e1\
+el kalam eli f el content #123355\
+content background #dfe3e5 */

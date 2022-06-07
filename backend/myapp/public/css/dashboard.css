@@ -1,0 +1,277 @@
+.sidebar {
+    margin-left: 0;
+    padding: 2%;
+    width: 20%;
+    color: aliceblue;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    background-color:#2C3E50 ;
+
+  }
+  .icon{
+padding-right: 17px;
+  }
+  .sidebar a {
+    display: block;
+    color: aliceblue;
+    padding: 10px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bolder;
+
+  }
+  .sidebar a{
+    color: aliceblue;
+    background-color: #2C3E50;
+    border: #2C3E50;
+  }
+  #side_profile{
+    width: 80%;
+    margin-bottom: 9%;
+    border-radius: 5%;
+  }
+  .vertical_line{
+    width: 90%;
+    border-bottom: solid 3px  ;
+    border-color: #8dd6e1;
+  }
+#home{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+}
+#task{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  display: none;
+}
+.a2{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+  .sidebar a:hover {
+
+    /* background-color:#5fb1ac ; */
+
+    background-color:#8dd6e1 ;
+    color: #123355;
+
+  }
+
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+
+  .row{
+    position: absolute;
+    left: 22%;
+    top: 5%;
+    justify-content: space-between;
+
+  }
+  #small_profile{
+
+    width: 40%;
+    transform: translate(15%,-30%);
+    border-radius: 5%;
+
+  }
+  .btn-primary {
+    background-color: white;
+    border-color: white;
+    z-index: 1;
+  }
+  .btn-primary:hover{
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .btn-primary:focus{
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .rounded-circle{
+    background-color: green !important;
+    /* border: blue !important; */
+    position: absolute !important;
+    left:350% !important;
+    top: 64% !important;
+    width: 4%;
+    height: 4%;
+    z-index: 2;
+  }
+  .vline{
+    position: absolute;
+    width: 80%;
+    top: 13%;
+    left: 20%;
+    border-bottom: solid 3px;
+    border-color: #3b8a94;
+
+  }
+  .line{
+    position: absolute;
+    /* width: 200%; */
+    top: 100%;
+    left: -1%;
+    border-bottom: solid 3px  ;
+    border-color: #3b8a94;
+
+  }
+ .title{
+
+   color: #123355;
+ }
+ .right{
+   display:flex;
+   color: #123355;
+ }
+ #notification{
+   position: absolute;
+   right: -5%;
+   width: 8%;
+   top: -25%;
+
+ }
+ .contentt{
+  height: 130%;
+    width: 80%;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    /* background-color:#eeee; */
+    background-color: #dfe3e5;
+    /* background-color: #ddf5f9; */
+
+
+ }
+ #piechart{
+   width: 30%;
+   position: absolute;
+   left: 10%;
+   top: 5%;
+ }
+ #piechart2{
+  width: 30%;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+
+ }
+
+
+ #barchart_material{
+  width: 80%;
+  position: absolute;
+  top: 51%;
+  right: 10%;
+ }
+
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;
+    }
+    div.content {margin-left: 0;}
+    .sidebar img{
+      display: none;
+    }
+    .vertical_line{
+      display: none;
+    }
+
+    .container{
+      display: none;
+    }
+    .vline{
+      display: none;
+
+    }
+    .contentt{
+      position: absolute;
+      top: auto;
+      left: auto;
+      width: 100%;
+      float: left;
+
+    }
+    #piechart{
+      /* position: absolute;
+      top: auto;
+      left: auto;
+      width: auto; */
+      float: none;
+    }
+    #piechart2{
+      /* position: absolute;
+      top: auto;
+      left: auto;
+      width: auto; */
+      float: left;
+
+        flex-direction:column;
+
+    }
+
+
+  }
+
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+      top: auto;
+
+
+    }
+    .sidebar img{
+display: none;    }
+    .vertical_line{
+      display: none;
+    }
+    .container{
+      display: none;
+
+    }
+    .vline{
+      display: none;
+
+    }
+    .contentt{
+      position: absolute;
+      top: auto;
+      left: auto;
+      width: 100%;
+      float: none;
+
+    }
+    /* home */
+    #piechart{
+      /* position: absolute;
+      top: auto;
+      left: auto; */
+      /* width: 100%; */
+      float: none;
+    }
+    #piechart2{
+      /* position: absolute;
+      top: calc(80%-400px);
+      left: auto;
+      width: 100%; */
+      float: none;
+
+        /* flex-direction:column; */
+
+    }
+  }

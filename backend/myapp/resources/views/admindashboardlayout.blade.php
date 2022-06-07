@@ -17,6 +17,7 @@
 <body>
     <div class="sidebar">
 
+
         @if (Auth::user()->profile_image == null)
             <img src="{{ asset('styling\css\img\blank-profile-picture-973460_640.png') }}" width="70px" height="180px"
                 alt="profile" id="side_profile">
@@ -26,6 +27,7 @@
         @endif
 
         <h2>{{ Auth::user()->fname }} {{ Auth::user()->mname }}</h2>
+
         <p class="vertical_line"> </p>
 
 

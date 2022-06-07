@@ -11,6 +11,7 @@ use App\Models\User;
 use Google\Service\ServiceControl\Auth;
 use Illuminate\Contracts\Foundation\MaintenanceMode;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,12 +46,14 @@ Route::get('/patientdashboard', function () {
     ]);
 })->name('patientdashboard');
 
-
+Route::get('', function () {
+    return view('dashboard_patient');
+})->name('patientdashboard');
 
 Route::get('/admindashboard', function () {
     return view('dashboard');
 })->name('admindashboard');
-
+Route::get('/analysis',[ChartController::class,'googlePieChart']);
 
 
 

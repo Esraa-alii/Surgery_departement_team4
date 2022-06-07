@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="{{ asset('styling/css/doctor_dashboard_pat.css') }}">
 @endsection
 
-
 @section('content')
     <table class="table">
         <thead class="thead-dark">
