@@ -25,7 +25,7 @@
                 alt="profile" id="side_profile">
         @endif
 
-        <h2>{{ Auth::user()->fname }}</h2>
+        <h2>{{ Auth::user()->fname }} {{ Auth::user()->mname }}</h2>
         <p class="vertical_line"> </p>
 
 

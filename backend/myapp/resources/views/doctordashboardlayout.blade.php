@@ -21,7 +21,7 @@
             <img src="{{ asset('uploads/pictures/' . Auth::user()->profile_image) }}" width="70px" height="180px"
                 alt="profile" id="side_profile">
         @endif
-        <h2>{{ Auth::user()->fname }}</h2>
+        <h2>{{ Auth::user()->fname }} {{ Auth::user()->mname }}</h2>
         <p class="vertical_line"> </p>
 
 
@@ -42,13 +42,12 @@
         <div class="row">
 
 
-            <div class="container">
-                <div class="row">
-                    <div class="col d-flex">
-                        <h3 class="title mb-0"> Doctor Dashboard</h3>
-                        <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
-                    </div>
-                </div>
+            
+            <div class="col d-flex">
+                <h3 class="title mb-0"> Doctor Dashboard</h3>
+                <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
+
+            </div>
 
             </div>
             <div class="  col-">

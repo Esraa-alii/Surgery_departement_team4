@@ -14,7 +14,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
+                <th scope="col">specialization</th>
                 <th scope="col">SSN</th>
                 <th scope="col">Mail</th>
                 <th scope="col">phone</th>
@@ -28,7 +28,7 @@
                     <tr id="Myid">
                         <th scope="row">1</th>
                         <td>{{ $member['fname'] }}</td>
-                        <td>{{ $member['mname'] }}</td>
+                        <td>{{ $member['specialization'] }}</td>
                         <td>{{ $member['ssn'] }}</td>
                         <td>{{ $member['email'] }}</td>
                         <td>{{ $member['phone_number1'] }}</td>
@@ -69,6 +69,7 @@
                         <!-- birthdate part -->
                         <label for="birthdate">Birth date:</label> <br>
                         <input type="date" id="birth_date" name="birth_date" required><br>
+
                         {{-- specialization --}}
                         <label for="special">specialization:</label>
                         <br>
@@ -83,6 +84,7 @@
 
                         </select>
                         <br>
+
                         <!-- gener part -->
                         <label for="gender">Gender:</label><br>
                         <select name="gender" id="gender" required>

@@ -167,10 +167,11 @@
           <h1>SURGERY DEPARTMENT</h1>
           <P>We are here for you!</P>
           <div>
-              <a class="button"  href="{{route('signin')}}" >Sign In</a>
-              <a class="button"  href="{{url('register')}}" >Sign up</a>
-
-          </div>
+            <form>
+              <button type="submit" formaction="/signin"> Sign In</button>
+              <button type="submit" formaction="register"> Sign Up</button>
+            </form>
+            </div>
         </div>
 
       </div>
@@ -274,7 +275,9 @@
           <p>
           Select your Doctor and Schedule an Appointment
           </p>
-          <button>go</button>
+          <form method="get" action="register">
+            <button type="submit">go</button>
+        </form>
       </div>
     </div>
 
@@ -289,7 +292,9 @@
           <p>
           Search Our Wide Index or Professional Doctors.
           </p>
-          <button>go</button>
+          <form method="get" action="/finddoctor">
+            <button type="submit">go</button>
+        </form>
       </div>
     </div>
 
