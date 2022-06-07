@@ -41,7 +41,8 @@ Route::get('/', function () {
 
 //----------------------------------------------
 //////Patient dashboard
-
+Route::middleware('patient')->group(function () {
+});
 Route::get('/patientdashboard', function () {
     return view('dashboard_patient', [
         'members' => User::where('Role', 'Doctor')->get(),
@@ -69,9 +70,9 @@ Route::get('/analysis', [ChartController::class, 'googlePieChart']);
 
 //-----------------------------------------------
 ///// Doctor dashboard ---->
-// Route::get('/', function () {
-//     return view('doctor_dashboard_tasks');
-// })->name('doctortasks');
+
+Route::middleware('doctor')->group(function () {
+});
 
 Route::get('/doctorappointments', function () {
     return view('doctor_dashboard_appo', [
