@@ -25,6 +25,7 @@ file name placeholder -> addPatient.php
 
 ### variable names.
 
+profile picture -> pfp\
 email ->pmail\
 passowrd-> ppsw\
 ssn -> ssn\

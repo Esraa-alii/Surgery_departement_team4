@@ -19,13 +19,15 @@ return new class extends Migration
             $table->string('mname');
             $table->string('lname');
             $table->string('email')->unique();
+            $table->string('profile_image')->nullable();
             $table->date('birth_date');
             $table->string('gender');
             $table->string('Role');
+            $table->string('specialization')->nullable();
             $table->integer('ssn')->unique();
             $table->string('insurance_provider')->nullable();
-            $table->integer('phone_number1');
-            $table->integer('phone_number2')->nullable();
+            $table->string('phone_number1');
+            $table->string('phone_number2')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('Op_code')->unique();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -38,7 +39,8 @@ class MainController extends Controller
     function successlogin()
     {
         if (Auth::user()->Role == "Patient") {
-            return view('dashboard_patient');
+            $data = User::all();
+            return view('dashboard_patient', ['members' => $data]);
         }
         if (Auth::user()->Role == "Admin") {
             return view('dashboard');
@@ -51,7 +53,7 @@ class MainController extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/signin');
     }
 
     function listpatient()
@@ -79,4 +81,12 @@ class MainController extends Controller
         $data->delete();
         return redirect('/admindoctors');
     }
+
+    function findyourdoctor(){
+        $data = User::all();
+        return view('find_doctor', ['members' => $data]);
+    }
+
+
 }
+
