@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{{ asset('styling/bootstrap/bootstrap.min.css') }}">
     @yield('css')
     <title>Surgery departement</title>
-    <link rel="shortcut icon" src="{{ asset('surgeryDepartment/icon.ico') }}">
 </head>
 {{-- <link rel="shortcut icon" src="{{ asset('surgeryDepartment/icon.ico') }}"> --}}
 
@@ -48,7 +47,7 @@
             <div class="col d-flex">
                 <h3 class="title mb-0"> Doctor Dashboard</h3>
                 {{-- <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}" --}}
-                style="width:25px; height:25px">
+
 
             </div>
 

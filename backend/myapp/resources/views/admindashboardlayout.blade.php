@@ -11,13 +11,11 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @yield('css')
 
-    <title>Surgery Departement</title>
-    <link rel="shortcut icon" src="{{ asset('surgeryDepartment/icon.ico') }}">
+    <title>Document</title>
 </head>
 
 <body>
     <div class="sidebar">
-
 
         @if (Auth::user()->profile_image == null)
             <img src="{{ asset('styling\css\img\blank-profile-picture-973460_640.png') }}" width="70px" height="180px"
@@ -28,11 +26,10 @@
         @endif
 
         <h2>{{ Auth::user()->fname }} {{ Auth::user()->mname }}</h2>
-
         <p class="vertical_line"> </p>
 
 
-        <a href="{{ route('admindashboard') }}"><i class=" icon home fa-solid fa-house"> </i>Home</a>
+        <a href="{{ route('analysis') }}"><i class=" icon home fa-solid fa-house"> </i>Home</a>
 
 
         <a href="{{ route('admintasks') }}"><i class=" icon fa-solid fa-list-check"></i>
@@ -51,9 +48,6 @@
 
             <div class="col d-flex">
                 <h3 class="title mb-0"> Admin Dashboard</h3>
-                {{-- <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}" --}}
-                style="width:25px; height:25px">
-
             </div>
         </div>
     </div>

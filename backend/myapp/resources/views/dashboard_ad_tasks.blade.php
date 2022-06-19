@@ -50,6 +50,30 @@
 
         </tbody>
     </table>
+
+    <table class="table" id="complaints">
+        <thead class="thead-dark">
+            <tr>
+                {{-- <th scope="col">#</th> --}}
+                <th scope="col">Sender E-mail</th>
+                <th scope="col">complaints</th>
+                <th scope="col">Status</th>
+
+
+            </tr>
+        </thead>
+        @foreach ($complains as $complain)
+            <tbody>
+                <tr id="Myid">
+                    {{-- <th scope="row" >1</th> --}}
+                    <td>{{ $complain['email'] }}</td>
+                    <td>{{ $complain['complain'] }}</td>
+                    <td><button id="donee" onclick="toggleText()">Done</button>
+                    </td>
+                </tr>
+            </tbody>
+        @endforeach
+    </table>
 @endsection
 
 @section('js')

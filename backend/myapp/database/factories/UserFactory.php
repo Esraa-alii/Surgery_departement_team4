@@ -34,7 +34,6 @@ class UserFactory extends Factory
             'birth_date' => $this->faker->date,
             // 'gender'=> $this->faker->name($gender),
             'gender' => $this->faker->randomElement($array = array('male', 'female')),
-            'Role' => $this->faker->randomElement($array = array('patient', 'doctor', 'admin', 'nurse')),
             'insurance_provider' => $this->faker->randomElement($array = array('Yes', 'No')),
             // 'insurance_provider'=> $this->faker->name($insurance_provider),
             // 'Role'=> $this->faker->name($role),

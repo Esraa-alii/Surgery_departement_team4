@@ -15,6 +15,7 @@ use Illuminate\Validation\Rules\Exists;
 use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\ChartController;
+use App\Models\Complain;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,10 +55,6 @@ Route::middleware('patient')->group(function () {
 });
 
 
-Route::get('/admindashboard', function () {
-    return view('dashboard');
-})->name('admindashboard');
-Route::get('/analysis', [ChartController::class, 'googlePieChart']);
 
 
 
@@ -72,32 +69,33 @@ Route::get('/analysis', [ChartController::class, 'googlePieChart']);
 ///// Doctor dashboard ---->
 
 Route::middleware('doctor')->group(function () {
+    Route::get('/doctorappointments', function () {
+        return view('doctor_dashboard_appo', [
+            'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+                return $appointment->cost != null and $appointment->surgery_name != null and $appointment->op_date != null;
+            })
+        ]);
+    })->name('doctorappo');
+
+    Route::get('/doctortasks', function () {
+        return view('doctor_dashboard_tasks', [
+            'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+                return $appointment->cost == null or $appointment->surgery_name == null or $appointment->op_date == null;
+            })
+        ]);
+    })->name('doctortasks');
+
+    Route::get('/doctorpatients', function () {
+        return view('doctor_dashboard_pat', [
+            'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+                return $appointment->cost != null or $appointment->surgery_name != null or $appointment->op_date != null or $appointment->room != null;
+            })
+
+        ]);
+    })->name('doctorpatients');
 });
 
-Route::get('/doctorappointments', function () {
-    return view('doctor_dashboard_appo', [
-        'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
-            return $appointment->cost != null and $appointment->surgery_name != null and $appointment->op_date != null;
-        })
-    ]);
-})->name('doctorappo');
 
-Route::get('/doctortasks', function () {
-    return view('doctor_dashboard_tasks', [
-        'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
-            return $appointment->cost == null or $appointment->surgery_name == null or $appointment->op_date == null;
-        })
-    ]);
-})->name('doctortasks');
-
-Route::get('/doctorpatients', function () {
-    return view('doctor_dashboard_pat', [
-        'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
-            return $appointment->cost != null or $appointment->surgery_name != null or $appointment->op_date != null or $appointment->room != null;
-        })
-
-    ]);
-})->name('doctorpatients');
 //-----------------------------------------------
 
 
@@ -109,36 +107,53 @@ Route::get('/doctorpatients', function () {
 
 
 Route::middleware('admin')->group(function () {
+
+    Route::get('/admindashboard', function () {
+        return view('dashboard');
+    })->name('admindashboard');
+    Route::get('/analysis', [ChartController::class, 'googlePieChart'])->name('analysis');
+
+    Route::get('/admintasks', function () {
+        return view('dashboard_ad_tasks', [
+            'complains' => Complain::all(),
+
+            'appointments' => Appointment::where('operation_room_id', null)->get()->filter(function ($appointment) {
+                return  $appointment->op_date != null;
+            }),
+            'rooms' => OperationRoom::all()
+
+        ]);
+    })->name('admintasks');
+
+    Route::get('/adminpatients', [MainController::class, 'listpatient'])->name("adminpatients");
+    Route::get('/admindoctors', [MainController::class, 'listdoctor'])->name('admindoctors');
+
+
+    Route::get('/adminappointments', function () {
+        return view('dashboard_ad_appo', [
+
+
+            'appointments' => Appointment::all()->filter(function ($appointment) {
+                return  $appointment->op_date != null and $appointment->room != null;
+            }),
+
+        ]);
+    })->name('adminappo');
+
+    Route::get('deletepatient/{id}', [MainController::class, 'deletepatient']);
+
+    Route::get('deletedoctor/{id}', [MainController::class, 'deletedoctor']);
+
+    Route::post("adddoctor", [AddDoctor::class, 'store']);
 });
 
-Route::get('/admindashboard', function () {
-    return view('dashboard');
-})->name('admindashboard');
-
-Route::get('/admintasks', function () {
-    return view('dashboard_ad_tasks', [
-        'appointments' => Appointment::where('operation_room_id', null)->get()->filter(function ($appointment) {
-            return  $appointment->op_date != null;
-        }),
-        'rooms' => OperationRoom::all()
-
-    ]);
-})->name('admintasks');
-
-Route::get('/adminpatients', [MainController::class, 'listpatient'])->name("adminpatients");
-Route::get('/admindoctors', [MainController::class, 'listdoctor'])->name('admindoctors');
 
 
-Route::get('/adminappointments', function () {
-    return view('dashboard_ad_appo', [
 
 
-        'appointments' => Appointment::all()->filter(function ($appointment) {
-            return  $appointment->op_date != null and $appointment->room != null;
-        }),
 
-    ]);
-})->name('adminappo');
+
+
 Route::post('patientSignin', [MainController::class, 'checklogin']);
 Route::get('/successlogin', [MainController::class, 'successlogin']);
 Route::get('/logout', [MainController::class, 'logout'])->name('logout');
@@ -149,9 +164,6 @@ Route::post('/checklogin', [MainController::class, 'checklogin']);
 
 
 
-Route::get('deletepatient/{id}', [MainController::class, 'deletepatient']);
-
-Route::get('deletedoctor/{id}', [MainController::class, 'deletedoctor']);
 
 
 
@@ -191,7 +203,6 @@ Route::get('/signin', function () {
 // Route::post("register", [RegisterController::class, 'store'])->middleware('admin');
 
 
-Route::post("adddoctor", [AddDoctor::class, 'store']);
 
 
 
@@ -212,10 +223,7 @@ Route::post('updateappointment/{id}', [AppointmentController::class, 'update'])-
 
 Route::post('updateappointmentroom/{id}', [AppointmentController::class, 'updateRoom'])->name('appointment.updateroom');
 
-Route::get('test', function () {
-    $a = Appointment::first();
-    ddd($a->room);
-});
+
 
 // find your doctor
 
@@ -235,3 +243,5 @@ Route::get('send-mail', function () {
 
     dd("Email is Sent.");
 });
+
+Route::post('complain', [MainController::class, 'addcomplain']);

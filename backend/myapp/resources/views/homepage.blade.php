@@ -84,7 +84,7 @@
                 <li><a href="#spec"><i class="fa fa-list"></i> specialties</a></li>
                 <li><a href="#media"><i class="fa fa-photo"></i> Media center</a></li>
                 <li><a href="#patient"><i class="fa fa-user"></i> Patient area </a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> contact us</a></li>
+                <li><a href="#popup"><i class="fa fa-envelope"></i> contact us</a></li>
                 <div class="search-box">
                     <input type="text" placeholder="Type to search..">
                     <div class="search-icon">
@@ -417,11 +417,12 @@
     <div class="popup" id="popup">
         <div class="popup-inner">
             <div class="popup__photo">
-                <img src="../html/homeimg/slide1.jpeg" alt="">
+                <img src="{{ asset('surgeryDepartement\slide1.jpeg') }}" alt="">
             </div>
             <div class="popup__text">
 
-                <form name='myform' action="#">
+                <form name='myform' method="post" action="complain">
+                    @csrf
                     <input name="name" type="text" class="feedback-input" placeholder="Name" />
                     <input name='myemail' type="text" id="display_email" class="feedback-input" placeholder="Email" />
                     <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
@@ -599,7 +600,12 @@
 
 
     <!-- QR code -->
-
+    <script type="text/javascript">
+        function callvalue() {
+            var myyemail = document.getElementById('email').value;
+            document.myform.myemail.value = myyemail;
+        }
+    </script>
 
 
 
