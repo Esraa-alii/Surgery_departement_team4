@@ -9,8 +9,9 @@
 
     <link rel="stylesheet" href="{{ asset('styling/bootstrap/bootstrap.min.css') }}">
     @yield('css')
-    <title>Doctor dashboard</title>
+    <title>Surgery departement</title>
 </head>
+{{-- <link rel="shortcut icon" src="{{ asset('surgeryDepartment/icon.ico') }}"> --}}
 
 <body>
     <div class="sidebar">
@@ -42,29 +43,31 @@
         <div class="row">
 
 
-            
+
             <div class="col d-flex">
                 <h3 class="title mb-0"> Doctor Dashboard</h3>
-                <img class="p-0 align-self-center ms-2" src="{{asset("styling/css/img/bluelogo.ico")}}" style="width:25px; height:25px">
+                {{-- <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}" --}}
 
-            </div>
 
-            </div>
-            <div class="  col-">
-                <div class="right">
-
-                    </span>
-                    </button>
-                </div>
             </div>
 
         </div>
+        <div class="  col-">
+            <div class="right">
+
+                </span>
+                </button>
+            </div>
+        </div>
+
+    </div>
     </div>
 
     <div class="contentt">
 
         @yield('content')
-        <img src="{{asset("styling/css/img/gray-and-white-gradient-abstract-vector.png")}}" alt="background" id="background">
+        <img src="{{ asset('styling/css/img/gray-and-white-gradient-abstract-vector.png') }}" alt="background"
+            id="background">
 
     </div>
 

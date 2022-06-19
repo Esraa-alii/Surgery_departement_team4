@@ -26,11 +26,11 @@ function showcardio() {
 
   card.style.display = "block";
   title.style.display = "block";
-  urology.style.display = "none";
-  Obstetrics.style.display = "none";
-  neuro.style.display = "none";
-  dental.style.display = "none";
-  ortho.style.display = "none";
+  // urology.style.display = "none";
+  // Obstetrics.style.display = "none";
+  // neuro.style.display = "none";
+  // dental.style.display = "none";
+  // ortho.style.display = "none";
 
   // document.getElementById(cardio_doc).innerHTML = "";
   // var urology = document.getElementById("urology_doc")
@@ -57,14 +57,14 @@ function showurology() {
   var urology = document.getElementById("urology_doc");
   var title = document.getElementById("do");
   var card = document.getElementById("cardio_doc");
-
+  card.remove();
   urology.style.display = "block";
   title.style.display = "block";
-  Obstetrics.style.display = "none";
-  neuro.style.display = "none";
-  dental.style.display = "none";
-  ortho.style.display = "none";
-  card.style.display = "none";
+  // Obstetrics.style.display = "none";
+  // neuro.style.display = "none";
+  // dental.style.display = "none";
+  // ortho.style.display = "none";
+  // card.style.display = "none";
   // var  Obstetrics = document.getElementById("Obstetrics_docs")
   // var  neuro = document.getElementById("neurological_docs")
   // var  dental = document.getElementById("dental_doc")
@@ -86,7 +86,7 @@ function showurology() {
 function showObstetrics() {
   // var card = document.getElementById("cardio_doc")
   var title = document.getElementById("do")
-  // var urology = document.getElementById("urology_doc")
+  var urology = document.getElementById("urology_doc")
   var Obstetrics = document.getElementById("Obstetrics_docs")
   // var  neuro = document.getElementById("neurological_docs")
   // var  dental = document.getElementById("dental_doc")
@@ -94,6 +94,7 @@ function showObstetrics() {
 
   if (Obstetrics.style.display === "none") {
   } else {
+    urology.remove();
     // card.style.display = "none";
     title.style.display = "block";
     // urology.style.display = "none";
@@ -110,13 +111,14 @@ function neuroshow() {
   // var card = document.getElementById("cardio_doc")
   var title = document.getElementById("do")
   // var urology = document.getElementById("urology_doc")
-  // var  Obstetrics = document.getElementById("Obstetrics_docs")
+  var Obstetrics = document.getElementById("Obstetrics_docs")
   var neuro = document.getElementById("neurological_docs")
   // var  dental = document.getElementById("dental_doc")
   // var ortho=document.getElementById("Orthopaedic_doc")
 
   if (neuro.style.display === "none") {
   } else {
+    Obstetrics.remove();
     // card.style.display = "none";
     title.style.display = "block";
     // urology.style.display = "none";
@@ -132,12 +134,13 @@ function showOrthopaedic_doc() {
   var title = document.getElementById("do")
   // var urology = document.getElementById("urology_doc")
   // var  Obstetrics = document.getElementById("Obstetrics_docs")
-  // var  neuro = document.getElementById("neurological_docs")
+  var neuro = document.getElementById("neurological_docs")
   // var  dental = document.getElementById("dental_doc")
   var ortho = document.getElementById("Orthopaedic_doc")
 
   if (ortho.style.display === "none") {
   } else {
+    neuro.remove();
     ortho.style.display = "block";
     // card.style.display = "none";
     title.style.display = "block";
@@ -154,10 +157,11 @@ function dentalshow() {
   // var  Obstetrics = document.getElementById("Obstetrics_docs")
   // var  neuro = document.getElementById("neurological_docs")
   var dental = document.getElementById("dental_doc")
-  // var ortho=document.getElementById("Orthopaedic_doc")
+  var ortho = document.getElementById("Orthopaedic_doc")
 
   if (dental.style.display === "none") {
   } else {
+    ortho.remove();
     // ortho.style.display = "none";
     // card.style.display = "none";
     // title.style.display = "block";

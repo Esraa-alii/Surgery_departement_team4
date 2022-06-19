@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Complain;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Validator;
@@ -40,20 +42,27 @@ class MainController extends Controller
     {
         if (Auth::user()->Role == "Patient") {
             $data = User::all();
-            return view('dashboard_patient', ['members' => $data]);
+            return view('dashboard_patient', [
+                'members' => User::where('Role', 'Doctor')->get(),
+                'appointments' => Appointment::where('patient_ssn', auth()->user()->ssn)->get()->first()
+            ]);
         }
         if (Auth::user()->Role == "Admin") {
             return redirect('/analysis');
         }
         if (Auth::user()->Role == "Doctor") {
-            return view('doctor_dashboard_appo');
+            return view('doctor_dashboard_appo', [
+                'appointments' => Appointment::where('doctor_ssn', auth()->user()->ssn)->get()->filter(function ($appointment) {
+                    return $appointment->cost != null and $appointment->surgery_name != null and $appointment->op_date != null;
+                })
+            ]);
         }
     }
 
     function logout()
     {
         Auth::logout();
-        return redirect('/signin');
+        return redirect('/');
     }
 
     function listpatient()
@@ -82,11 +91,21 @@ class MainController extends Controller
         return redirect('/admindoctors');
     }
 
-    function findyourdoctor(){
+    function findyourdoctor()
+    {
         $data = User::all();
         return view('find_doctor', ['members' => $data]);
     }
 
+    function addcomplain(Request $req)
+    {
 
+
+        $complain = new Complain;
+        $complain->name = $req->name;
+        $complain->email = $req->myemail;
+        $complain->complain = $req->text;
+        $complain->save();
+        return redirect('/');
+    }
 }
-

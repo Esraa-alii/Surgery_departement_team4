@@ -17,7 +17,6 @@
 <body>
     <div class="sidebar">
 
-
         @if (Auth::user()->profile_image == null)
             <img src="{{ asset('styling\css\img\blank-profile-picture-973460_640.png') }}" width="70px" height="180px"
                 alt="profile" id="side_profile">
@@ -27,7 +26,6 @@
         @endif
 
         <h2>{{ Auth::user()->fname }} {{ Auth::user()->mname }}</h2>
-
         <p class="vertical_line"> </p>
 
 
@@ -50,9 +48,6 @@
 
             <div class="col d-flex">
                 <h3 class="title mb-0"> Admin Dashboard</h3>
-                <img class="p-0 align-self-center ms-2" src="{{ asset('styling/css/img/bluelogo.ico') }}"
-                    style="width:25px; height:25px">
-
             </div>
         </div>
     </div>

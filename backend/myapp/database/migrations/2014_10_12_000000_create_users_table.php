@@ -30,7 +30,11 @@ return new class extends Migration
             $table->string('phone_number2')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+<<<<<<< HEAD
             $table->string('Op_code')->nullable();
+=======
+            // $table->string('Op_code');
+>>>>>>> 7e5994bf56c4b89cb81376c93c978e64b77858a9
             $table->rememberToken();
             $table->timestamps();
         });
