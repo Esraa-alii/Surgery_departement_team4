@@ -43,7 +43,7 @@ class MainController extends Controller
             return view('dashboard_patient', ['members' => $data]);
         }
         if (Auth::user()->Role == "Admin") {
-            return view('dashboard');
+            return redirect('/analysis');
         }
         if (Auth::user()->Role == "Doctor") {
             return view('doctor_dashboard_appo');

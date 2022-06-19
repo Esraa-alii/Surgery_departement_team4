@@ -61,8 +61,8 @@ class RegisterController extends Controller
             'insurance_provider' => $insurance,
             'phone_number2' => $num2,
             'profile_image' => $filename,
-            'specialization'=>null
-
+            'specialization'=>null,
+            'Op_code' =>null
         ]);
         auth()->login($user);
 

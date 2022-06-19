@@ -31,7 +31,7 @@
         <p class="vertical_line"> </p>
 
 
-        <a href="{{ route('admindashboard') }}"><i class=" icon home fa-solid fa-house"> </i>Home</a>
+        <a href="{{ route('analysis') }}"><i class=" icon home fa-solid fa-house"> </i>Home</a>
 
 
         <a href="{{ route('admintasks') }}"><i class=" icon fa-solid fa-list-check"></i>

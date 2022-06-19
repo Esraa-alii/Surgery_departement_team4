@@ -42,22 +42,20 @@ Route::get('/', function () {
 //----------------------------------------------
 //////Patient dashboard
 Route::middleware('patient')->group(function () {
+    Route::get('/patientdashboard', function () {
+        return view('dashboard_patient', [
+            'members' => User::where('Role', 'Doctor')->get(),
+            'appointments' => Appointment::where('patient_ssn', auth()->user()->ssn)->get()->first()
+        ]);
+    })->name('patientdashboard');
 });
-Route::get('/patientdashboard', function () {
-    return view('dashboard_patient', [
-        'members' => User::where('Role', 'Doctor')->get(),
-        'appointments' => Appointment::where('patient_ssn', auth()->user()->ssn)->get()->first()
-    ]);
-})->name('patientdashboard');
 
-Route::get('', function () {
-    return view('dashboard_patient');
-})->name('patientdashboard');
+
 
 Route::get('/admindashboard', function () {
     return view('dashboard');
 })->name('admindashboard');
-Route::get('/analysis', [ChartController::class, 'googlePieChart']);
+Route::get('/analysis', [ChartController::class, 'googlePieChart'])->name('analysis');
 
 
 
