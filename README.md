@@ -31,6 +31,7 @@ This website has been built using the following technologies:
 * Laravel 8
 
 ## Installation
+**You must first install the necessary dependencies: You will need to have PHP, Composer, and a web server (such as Apache or Nginx) installed on your computer or server. You can install PHP and Composer using the instructions provided on their respective websites.**
 
 To run this website locally, follow these steps:
 
